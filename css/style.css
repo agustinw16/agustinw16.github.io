@@ -1,0 +1,291 @@
+/*** ESTILO PARA LA PAGINA EN GENERAL ***/
+*{
+    padding: 0;
+    box-sizing: border-box; /*el valor border-box en el box-sizing hace que el padding y el border 
+    pasen a formar parte del cálculo del ancho de la caja (width) y no lo suman posteriormente*/
+    margin: 0;
+}
+body{
+    font-family: "Open Sans", sans-serif; /*El estilo agrega 8px de height adicionales a las fuentes (
+        en este caso afecta a los iconos tambien)*/
+}
+
+.container{
+    width: 100%;
+    height: 100vh; /*le aplico un tamaño del 100% de height de la pantalla*/
+    /*display: grid;*/
+    /*grid-template-columns: 300px 2fr; /*Defino el tamaño de las columnas, 300px para la parte del menu*/
+    /*grid-template-areas: "nav article"; /*Defino las dos areas*/
+    z-index: 1; /*Le indico un z-index de uno para colocar otros elementos por arriba de este*/
+}
+
+.article-container {
+    position: fixed; /*El area de sections se mostrara siempre en la pantalla por mas que se haga scroll (ocupara todo el espacio por mas que se agrande o disminuya la pantalla)*/
+    margin-left: 300px; /*Le indico al contenedor de sections que tendra un margen izquierdo de 300px (tamaño del menu navegable asi se muestren ambos)*/
+    width: 100%; 
+    height: 100vh; /*le aplico un tamaño del 100% de height de la pantalla*/
+    transition: margin-left 1s; /*Le doy una transicion para que cuando el tamaño de la pantalla supere el max-width se muestre lentamente*/
+    /*grid-area: article;*/
+    max-height: 100%; /* Establece un alto máximo para permitir el scroll */
+    overflow-y: auto; /* Habilita el scroll cuando sea necesario */
+}
+
+.article-section{
+    color: white;
+    background: rgb(0, 0, 0); 
+    height: 100%; /* Ocupa toda la altura del área de article-container */
+    margin-bottom: 1px; /* Espacio entre secciones */
+    padding: 10px; /*Espacio entre la section y el article-container*/
+}
+/*------------------------------------------------------------------*/
+/*                          BOTON DE MENU                           */
+/*------------------------------------------------------------------*/
+
+/*Esta clase tiene el div que contiene el boton para abrir el menu*/
+.menu-button{
+    display: none; /*Ocultara el boton hasta que la resolucion sea la indicada para que aparezca*/
+    position: fixed; /*El boton menu se mostrara siempre en la pantalla por mas que se haga scroll (con fixed dependera solo del tamaño de su contenido) */
+    z-index: 2; /*Le indico que estara encima del que tiene z-index menor (osea el contenedor principal)*/
+    top: 1rem;  /*Posiciona el elemento en la parte superior del navegador (1rem para que no este pegado al borde)*/
+    right: 2.5rem; /*Posiciona el elemento a la derecha del navegador (2.5rem para que no este pegado al borde)*/
+    text-align: center; /*Centra el div que contiene los iconos*/
+}
+/*Enlace-Boton de menu con forma circular*/
+.menu-button a {
+    display: inline-block; /*Hace que el elemento ocupe solo su contenido, pero sus propiedades sean block (editables)*/
+    background: #212431; /*Color del fondo de los enlaces*/
+    color: #fff; /*Color del contenido de los enlaces*/
+    padding: 6px; /*Espacio entre los iconos y los enlaces "a"*/
+    border-radius: 50%; /*Convierte a bordes circulares los enlaces*/
+    width: 53px; /*Le da el ancho al enlace*/
+    height: 53px; /*Le da el alto al enlace*/
+    line-height: 53px; /*Establezco la altura de linea igual al alto del enlace, para centrar la img dentro de <a>*/
+    transition: transform 0.3s ease, box-shadow 0.5s ease;/*La transicion se aplica a cada propiedad con diferentes tiempos*/
+
+}
+.menu-button a:hover{
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.7);
+    transform: scale(1.05);
+}
+.menu-button a img{
+    scale: 1.2; /*Aumento en un 20% el tamaño de la imagen*/
+}
+/*------------------------------------------------------------------*/
+/*                          FIN BOTON DE MENU                       */
+/*------------------------------------------------------------------*/
+
+
+/*------------------------------------------------------------------*/
+/*                          MENU NAVEGABLE                          */
+/*------------------------------------------------------------------*/
+
+/*Estilo para el header que es el menu navegable*/
+#header{
+    position: fixed; /*El menu navegable se mostrara siempre en la pantalla por mas que se haga scroll*/
+    top: 0;
+    left: 0; 
+    bottom: 0;
+    width: 300px; /*Ancho del menu*/ 
+    z-index: 2; /*Le indico un index para que el menu siempre aparezca sobre el contenedor (estara arriba de los section)*/
+    transition: all 0.99s; /*Transicion para que aparezca cuando la pantalla crezca*/
+
+    /*Propiedades para realizar la animacion de aparecer al cargar la pagina*/
+    animation-name: aparecer; /*Nombre de la animacion*/
+    animation-duration: 0.5s; /*Duracion de la animacion*/
+
+    padding: 0 15px; /*Espaciado de izquierda y derecha, entre el contenido y los bordes*/
+    background: #040b14; /*Color del fondo*/
+    overflow-y: auto; /*Se mostrara un scroll si hay contenido que sobrepasa espacio visible*/
+    grid-area: nav; /*Area del grid*/
+}   
+@keyframes aparecer { 
+    from { /*Valores al inicio de la animaciones*/
+      opacity: 0;
+      left: -1%; 
+    }
+    to { /*Valores al final de la animaciones*/
+      opacity: 1;
+      left: 0; 
+    }
+}
+
+/*Estilo para la imagen de perfil*/
+.profile img {
+    margin: 15px auto;
+    display: block;
+    height: 120px;
+    width: 130px;
+    border-radius: 50%!important;
+}
+/*Estilo para el titulo*/
+.profile h1 {
+    font-size: 25px;
+    margin: 0;
+    padding: 0;
+    font-weight: 600;
+    text-align-last: center;
+    font-family: "Poppins", sans-serif;
+}
+/*Estilo para el enlace que estra dentro de h1 y a su vez dentro del div que tiene la clase .profile*/
+.profile h1 a{  
+    color: #fff; /*Color del titulo*/
+    text-decoration: none; /*Quita subrayado del titulo ya que es un  enlace*/
+}
+/*Esta clase tiene el div que contiene los enlaces a las redes sociales*/
+.social-links{
+    text-align: center; /*Centra el div que contiene los iconos*/
+    height: 75px; /*Alto del contenedor de los links a redes sociales*/
+}
+/*Enlaces con forma circular*/
+.social-links a {
+    margin-top: 1rem; /*Espacio entre los enlaces de redes sociales y el titulo*/
+    font-size: 24px; /*Tamaño del contenido dentro de los enlaces (en este caso los iconos)*/
+    display: inline-block; /*Hace que el elemento ocupe solo su contenido, pero sus propiedades sean block (editables)*/
+    background: #212431; /*Color del fondo de los enlaces*/
+    color: #fff; /*Color del contenido de los enlaces*/
+    padding: 6px; /*Espacio entre los iconos y los enlaces "a"*/
+    margin-right: 10px; /*Espacio del lado derecho de cada enlace*/
+    border-radius: 50%; /*Convierte a bordes circulares los enlaces*/
+    width: 43px; /*Le da el ancho al enlace*/
+    height: 43px; /*Le da el alto al enlace*/
+    transition: transform 0.3s ease, box-shadow 0.5s ease;/*La transicion se aplica a cada propiedad con diferentes tiempos*/
+}
+.social-links a:hover{
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
+    transform: scale(1.15); /*aumenta el tamaño de todo en un 15%*/
+}
+/*------------------------------------------------------------------*/
+/*                      FIN DE MENU NAVEGABLE                       */
+/*------------------------------------------------------------------*/
+
+/*||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||*/
+/*                  DISEÑO RESPONSIVE-MENU NAVEGABLE                */
+/*||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||*/
+
+/*Este estilo se aplicara cuando la resolucion de la pantalla sea 768px o menos*/
+@media screen and (max-width: 768px){
+    /*Con esto el boton del menu aparecera solo cuando la pantalla sea 768px o menor*/
+    .menu-button{
+        display:block;
+    } 
+    /*
+    El estilo del grid cambiara, ahora sera solo una columna que ocupa toda la pantalla
+    .container{
+        grid-template-columns: 1fr; 
+        grid-template-areas: "article"; Defino una sola area areas
+    }
+    */
+    /*Estilo para que el menu se deslize a la izquierda y se esconda cuando la resolucion sea menor 768px*/
+    #header{
+        left: -300px;
+        transition: left 1s;
+    }
+    /*Estilo para que el area de sections se deslize a la izquierda y se muestre en toda la pantalla cuando la resolucion sea menor 768px*/
+    .article-container{
+        margin-left: 0; /*Pongo el margen en 0 para que el el area de sections ocupe toda la pantalla*/
+        transition: margin-left 0.99s; /*la transicion se hara a una velocidad de 0.99s*/
+    }
+    /*NOTA: ¿por que la transicion del header es 1s y article-container es 0.99? porque si fueran iguales hay una pequeña linea que ve
+    al momento de las transiciones, al ser diferentes por 0.01s esa linea no es apreciable*/ 
+}
+/*Esta clase tendra efecto solo cuando se de click al boton para abrir el menu (se agrega la clase showmenu al contenedor principal)*/
+.showmenu #header{
+    left: 0; /*Vuelve a poner la posicion left del menu a su valor original para que se muestre*/
+    transition: left 1s; /*Transicion que tendra la aparacion del menu*/
+}
+
+/*||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||*/
+/*               FIN DISEÑO RESPONSIVE-MENU NAVEGABLE               */
+/*||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||*/
+
+
+/*------------------------------------------------------------------*/
+/*                      LISTA DE MENU NAVEGABLE                     */
+/*------------------------------------------------------------------*/
+/*Le saco los eventos por defecto a los iconos de ion-icon (para no mostar los nombres por defecto de estos)*/
+ion-icon{
+    pointer-events: none;
+    font-size: 22px;
+}
+.dropdown{ 
+    width: 100%;
+    padding: 1em 0 0 0; /*Espacio entre los logos de redes sociales y la lista*/
+    display: grid; /*creo una cuadricula*/
+
+    gap: .5rem; /*espaciado entre el contenido*/
+    /*overflow-y: auto;/*esto es para que en el caso de que el contenido del dropdown
+    se superior al alto en nuestro navegador, se cree un scroll*/
+}
+.dropdown_list{
+    list-style: none; /*le saco todos los estilos a la lista*/
+}
+.dropdown_link{
+    font-size: 19px;
+    color: white;
+    padding: 1em .7em;
+    text-decoration: none; /*le saco la linea de abajo al link*/
+
+    display: flex; 
+    align-items: center; /*centro verticalmente a los elementos (el icono y el span)*/
+    gap: .6rem; /*espaciado entre cada elemento*/
+
+    background-color: transparent; 
+    border-radius: 6px; /*le doy un borde a las esquinas del fondo*/
+}
+/*Estilo que se aplica al pasar el cursor sobre los enlaces*/
+.dropdown_link:hover{
+    background-color: rgb(204, 201, 201, 0.2); /*Color gris con opacidad 0.2*/
+    transition: 0.3s; /*Tiempo que se demora la transicion del cambio de color del fondo*/
+}
+/*Estilo de la flecha para abrir la sublista*/
+.dropdown_arrow{
+    margin-left: auto; /*mando el icono de la flecha al costado derecho*/
+    transition: transform 0.5s; /*Esta transcion solo se aplicara al transform (propiedad que tendra cuando a su padre
+    osea el enlace <a> le den click)*/
+}
+/*Cuando el <a> que tiene la clase dropdown_link_click recibe la clase "arrow" desde js entonces a su hijo con la
+clase dropdown_arrow se le agregar un transform para rotar la flecha 180°*/
+.arrow .dropdown_arrow{
+    transform: rotate(180deg);
+}
+/*------------ ESTILOS DE LA SUBLISTA ------------*/
+
+/*Estilo de UL en la sublista*/
+.list_show{
+    /*margin-top: .5rem; /*Espacio entre la parte de arriba del ul de la sublista y el enlace de la lista principal*/
+    height: 0; /*el height empieza en 0 para ocultar la sublista*/
+    transition: height .5s; /*Transicion que se aplicara cuando cambie el height cada vez que hago click (el height cambia con js)*/
+    display: grid;
+    overflow-y: auto; /*Inserta un scroll cuando se desborda del height indicado*/
+    gap: .5rem; /*Espaciado entre los li*/
+}
+/* Estilo del scrollbar para navegadores webkit (Chrome, Safari) */
+.list_show::-webkit-scrollbar {
+    display: none; /*Hace invisible el scrollbar*/
+}
+
+/*Estilo de LI en la sublista*/
+.list_inside{
+    padding: 0 .5em 0 0; /*Dejo un pequeño espacio entre cada enlace y la barra de desplazamiento*/
+    width: 85%; /*Le doy un tamaño del 85% a los li que contiene los proyectos del portafolio*/
+    list-style: none;
+    margin-left: auto; /*mando los links al costado derecho*/
+}
+/*Estilo de <a> en la sublista*/
+.link_inside{
+    font-size: 1em;
+    color: white;
+    padding: .5em 1em;
+    text-decoration: none; /*le saco la linea de abajo al link*/
+    background: transparent;
+    display: flex; 
+    border-radius: 6px; /*le doy un borde a las esquinas del fondo*/
+}
+/*Estilo que se aplica al pasar el cursor sobre los enlaces de la sublista*/
+.link_inside:hover{
+    background-color: rgb(204, 201, 201, 0.2); /*Color gris con opacidad 0.2*/
+    transition: 0.3s; /*Tiempo que se demora la transicion del cambio de color del fondo*/
+}
+/*------------------------------------------------------------------*/
+/*                      FIN LISTA DE MENU NAVEGABLE                 */
+/*------------------------------------------------------------------*/
