@@ -89,15 +89,19 @@ body{
     z-index: 2; /*Le indico un index para que el menu siempre aparezca sobre el contenedor (estara arriba de los section)*/
     transition: all 0.99s; /*Transicion para que aparezca cuando la pantalla crezca*/
 
-    /*Propiedades para realizar la animacion de aparecer al cargar la pagina*/
-    animation-name: aparecer; /*Nombre de la animacion*/
-    animation-duration: 0.5s; /*Duracion de la animacion*/
+    /*Propiedades para realizar la animacion del keyframe de aparecer al cargar la pagina
+    animation-name: aparecer; /*Nombre de la animacion
+    animation-duration: 0.5s; /*Duracion de la animacion
+    */
 
     padding: 0 15px; /*Espaciado de izquierda y derecha, entre el contenido y los bordes*/
     background: #040b14; /*Color del fondo*/
     overflow-y: auto; /*Se mostrara un scroll si hay contenido que sobrepasa espacio visible*/
-    grid-area: nav; /*Area del grid*/
-}   
+    /*grid-area: nav; /*Area del grid*/
+}
+
+/*El siguiente keyframe no lo aplico ya que, al cargar la pagina en dispositivos con menor resolucion donde el menu deberia estar oculto, 
+este se muestra por unos segundos debido al keyframe*/   
 @keyframes aparecer { 
     from { /*Valores al inicio de la animaciones*/
       opacity: 0;
