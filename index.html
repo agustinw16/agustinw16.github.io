@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel='stylesheet' type='text/css' href='css/style.css'>
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+
+    <title>Agustin Veliz</title>
+</head>
+<body>
+
+    <!-- ======= Button Menu ======= -->
+    <div class="menu-button" id="menu-button">
+        <a href="#" title="Menu">
+            <img id="img-button-menu" src="assets/menu.svg">
+        </a>
+    </div>
+
+    <!-- ======= Contenedor Principal ======= -->
+    <div class="container" id="contenedor">
+        <!-- ======= Header ======= -->
+        <header id="header">
+                <nav>
+                    <div class="profile">
+                        <img src="assets/profile.jpg">
+                        <h1 class="text-light"><a href="index.html">Agustin Veliz</a></h1>
+                        <div class="social-links">
+                            <a href="https://www.instagram.com/agustin_veliz_/" title="Instagram" target="_blank">
+                                <i class='bx bxl-instagram'></i>
+                            </a>
+                            <a href="https://www.linkedin.com/in/juan-agustin-veliz-7b0485202/" title="Linkedin" target="_blank">
+                                <i class='bx bxl-linkedin'></i>
+                            </a>
+                        </div>
+                    </div>
+                </nav>
+
+                <nav>
+                    <ul class="dropdown" id="menu">
+                        <li class="dropdown_list">
+                            <a href="#home" class="dropdown_link"><ion-icon name="home-outline"></ion-icon><span>Home</span></a>
+                        </li>
+                        <li class="dropdown_list">
+                            <a href="#about" class="dropdown_link"><ion-icon name="person-outline"></ion-icon><span>About</span></a>
+                        </li>
+                        <li class="dropdown_list">
+                            <a href="#resume" class="dropdown_link"><ion-icon name="document-text-outline"></ion-icon><span>Resume</span></a>
+                        </li>
+                        <li class="dropdown_list">
+                            <a href="#" class="dropdown_link dropdown_link_click">
+                            <ion-icon name="briefcase-outline"></ion-icon><span>Portfolio</span>
+                            <img src="assets/down.svg" class="dropdown_arrow"><!--Flecha para abrir sublista-->
+                            </a>
+                            <!--El ul siguiente sera un elemento hermano adyacente de <a>-->
+                            <ul class="list_show">
+                                <li class="list_inside">
+                                    <a href="#" class="link_inside">Project 1</a>
+                                </li>
+                                <li class="list_inside">
+                                    <a href="#" class="link_inside">Project 2</a>
+                                </li>
+                                <li class="list_inside">
+                                    <a href="#" class="link_inside">Project 3</a>
+                                </li>
+                                <li class="list_inside">
+                                    <a href="#" class="link_inside">Project 4</a>
+                                </li>
+                            </ul>
+
+                        </li>
+                        <li class="dropdown_list">
+                            <a href="#contact" class="dropdown_link"><ion-icon name="mail-outline"></ion-icon><span>Contact</span></a>
+                        </li>
+                    </ul>
+                </nav><!-- .nav-menu -->
+        </header><!-- End Header -->
+       
+        <!-- ======= Sections ======= -->
+        <div class="article-container">
+            <section id="home" class="article-section">Home</section>
+            <section id="about" class="article-section">About</section>
+        </div>
+        
+
+
+    </div>
+    <script src="js/sublist.js"></script>
+    <script src="js/menuButton.js"></script>
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+
+</body>
+</html>
