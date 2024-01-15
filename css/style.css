@@ -52,9 +52,9 @@ body{
 .menu-button{
     display: none; /*Ocultara el boton hasta que la resolucion sea la indicada para que aparezca*/
     position: fixed; /*El boton menu se mostrara siempre en la pantalla por mas que se haga scroll (con fixed dependera solo del tamaño de su contenido) */
-    z-index: 2; /*Le indico que estara encima del que tiene z-index menor (osea el contenedor principal)*/
+    z-index: 3; /*Le indico que estara encima del que tiene z-index menor (osea el contenedor principal)*/
     top: 1rem;  /*Posiciona el elemento en la parte superior del navegador (1rem para que no este pegado al borde)*/
-    right: 2.5rem; /*Posiciona el elemento a la derecha del navegador (2.5rem para que no este pegado al borde)*/
+    right: 1.5rem; /*Posiciona el elemento a la derecha del navegador (2.5rem para que no este pegado al borde)*/
     text-align: center; /*Centra el div que contiene los iconos*/
 }
 /*Enlace-Boton de menu con forma circular*/
@@ -154,7 +154,7 @@ este se muestra por unos segundos debido al keyframe*/
     display: inline-block; /*Hace que el elemento ocupe solo su contenido, pero sus propiedades sean block (editables)*/
     background: #212431; /*Color del fondo de los enlaces*/
     color: #fff; /*Color del contenido de los enlaces*/
-    padding: 6px; /*Espacio entre los iconos y los enlaces "a"*/
+    padding: 0.35rem; /*Espacio entre los iconos y los enlaces "a"*/
     margin-right: 10px; /*Espacio del lado derecho de cada enlace*/
     border-radius: 50%; /*Convierte a bordes circulares los enlaces*/
     width: 43px; /*Le da el ancho al enlace*/
