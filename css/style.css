@@ -137,7 +137,7 @@ este se muestra por unos segundos debido al keyframe*/
     text-align-last: center;
     font-family: "Poppins", sans-serif;
 }
-/*Estilo para el enlace que estra dentro de h1 y a su vez dentro del div que tiene la clase .profile*/
+/*Estilo para el enlace que esta dentro de h1 y a su vez dentro del div que tiene la clase .profile*/
 .profile h1 a{  
     color: #fff; /*Color del titulo*/
     text-decoration: none; /*Quita subrayado del titulo ya que es un  enlace*/
@@ -149,12 +149,16 @@ este se muestra por unos segundos debido al keyframe*/
 }
 /*Enlaces con forma circular*/
 .social-links a {
+    display: inline-flex; /*Le doy un estilo flex e inline para que los elementos solo ocupen su tamaño y no se pongan uno debajo de otro*/
+    align-items: center; /*Centro horizontalmente el contenido (en este caso los iconos)*/
+    justify-content: center; /*Centro verticalmente el contenido (en este caso los iconos)*/
+    text-decoration: none; /*Le quito la decoracion al enlace para que no aparezca subrayado*/
     margin-top: 1rem; /*Espacio entre los enlaces de redes sociales y el titulo*/
     font-size: 24px; /*Tamaño del contenido dentro de los enlaces (en este caso los iconos)*/
-    display: inline-block; /*Hace que el elemento ocupe solo su contenido, pero sus propiedades sean block (editables)*/
+    /*display: inline-block; /*Hace que el elemento ocupe solo su contenido, pero sus propiedades sean block (editables)*/
     background: #212431; /*Color del fondo de los enlaces*/
     color: #fff; /*Color del contenido de los enlaces*/
-    padding: 0.35rem; /*Espacio entre los iconos y los enlaces "a"*/
+    /*padding: 0.35rem; Espacio entre los iconos y los enlaces "a"*/
     margin-right: 10px; /*Espacio del lado derecho de cada enlace*/
     border-radius: 50%; /*Convierte a bordes circulares los enlaces*/
     width: 43px; /*Le da el ancho al enlace*/
@@ -165,6 +169,7 @@ este se muestra por unos segundos debido al keyframe*/
     box-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
     transform: scale(1.15); /*aumenta el tamaño de todo en un 15%*/
 }
+
 /*------------------------------------------------------------------*/
 /*                      FIN DE MENU NAVEGABLE                       */
 /*------------------------------------------------------------------*/
