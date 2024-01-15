@@ -20,7 +20,7 @@
 
     <!-- ======= Contenedor Principal ======= -->
     <div class="container" id="contenedor">
-        <!-- ======= Header ======= -->
+        <!-- ======= Header//Menu ======= -->
         <header id="header">
                 <nav>
                     <div class="profile">
@@ -79,7 +79,29 @@
        
         <!-- ======= Sections ======= -->
         <div class="article-container">
+             <!--
             <section id="home" class="article-section">Home</section>
+            <section id="about" class="article-section">About</section>
+            -->
+            <section id="contact" class="article-section">
+                <div class="contact_div">
+                    <form id="contact-form" action="" class="contact-form">
+                        <p>Contact</p>
+                        <label for="contact-name">Name</label>
+                        <input type="text" id="contact-name" name="contact-name" placeholder="Insert your name" required="true">
+
+                        <label for="contact-email">email</label>
+                        <input type="text" id="contact-email" name="contact-email" placeholder="Insert your email" required="true">
+
+                        <label for="contact-message">Message</label>
+                        <textarea id="contact-message" name="contact-message" cols="30" rows="10" placeholder="Insert your message" required="true"></textarea>
+                        <!--
+                        <input type="submit" value="Enviar"/> 
+                        Al ser de tipo submit ese dato se podria enviar a un servidor -->
+                        <button type="submit" id="contact-send">Send</button>
+                    </form>
+                </div>
+            </section>
             <section id="about" class="article-section">About</section>
         </div>
         
