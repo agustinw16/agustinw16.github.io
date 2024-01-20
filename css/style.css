@@ -357,7 +357,7 @@ clase dropdown_arrow se le agregar un transform para rotar la flecha 180°*/
     flex-direction: column; /*Indica que los elementos hijos del form se colocen en filas, es decir uno debajo de otro*/
     
     box-shadow: 0 0 24px 0 rgba(0, 0, 0, .15);
-    padding: 2rem; /*Espacio entre los bordes del form y sus elementos dentro*/
+    padding: 1rem 2rem; /*Espacio entre los bordes del form y sus elementos dentro*/
 }
     .contact-form label{
         padding: .5rem 0; /*Espaciado superior e inferior en las etiquetas*/
@@ -408,16 +408,17 @@ clase dropdown_arrow se le agregar un transform para rotar la flecha 180°*/
 .contact-extra{
     padding: 1rem;
     box-shadow: 0 0 24px 0 rgba(0, 0, 0, .15);
+    color: #105094; /*Color del h3 dentro del div extra*/
 
     /*Utilizo flex para centrar su contenido*/
     display: flex;
     flex-direction: column;
-    justify-content: space-around;
+    justify-content: space-between;
     align-items: center;
 }
     .contact-extra img{
-        width: 90px;
-        height: 120px;
+        width: 75px;
+        height: 100px;
         opacity: 1;
     }
     .contact-extra iframe{
