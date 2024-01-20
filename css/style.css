@@ -12,7 +12,7 @@ body{
 
 .container{
     width: 100%;
-    height: 100vh; /*le aplico un tamaño del 100% de height de la pantalla*/
+    /*height: 100vh; /*le aplico un tamaño del 100% de height de la pantalla*/
     /*display: grid;*/
     /*grid-template-columns: 300px 2fr; /*Defino el tamaño de las columnas, 300px para la parte del menu*/
     /*grid-template-areas: "nav article"; /*Defino las dos areas*/
@@ -20,7 +20,9 @@ body{
 }
 
 .article-container {
-    position: fixed; /*El area de sections se mostrara siempre en la pantalla por mas que se haga scroll (ocupara todo el espacio por mas que se agrande o disminuya la pantalla)*/
+    display: flex;
+    flex-direction: column;
+    /*position: fixed; /*El area de sections se mostrara siempre en la pantalla por mas que se haga scroll (ocupara todo el espacio por mas que se agrande o disminuya la pantalla)*/
     /*FORMA 1 para mostrar menu y secciones*/
     /*
     margin-left: 300px; /*Le indico al contenedor de sections que tendra un margen izquierdo de 300px (tamaño del menu navegable asi se muestren ambos)
@@ -31,16 +33,17 @@ body{
     padding-left: 300px; /*Le indico al contenedor de sections que tendra un padding izquierdo de 300px (tamaño del menu navegable asi se muestren ambos)*/
     transition: padding-left 1s; /*Le doy una transicion para que cuando el tamaño de la pantalla supere el max-width se muestre lentamente*/
     width: 100%; 
-    height: 100vh; /*le aplico un tamaño del 100% de height de la pantalla*/
+    height: 100%; /*le aplico un tamaño del 100% de height de la pantalla*/
     /*grid-area: article;*/
-    max-height: 100%; /* Establece un alto máximo para permitir el scroll */
-    overflow-y: auto; /* Habilita el scroll cuando sea necesario */
+    /*max-height: 100%; /* Establece un alto máximo para permitir el scroll */
+    /*overflow-y: auto; /* Habilita el scroll cuando sea necesario */
 }
 
 .article-section{
     color: black;
-    background: rgb(189, 97, 97); 
-    height: 100%; /* Ocupa toda la altura del área de article-container */
+    background: rgb(226, 131, 131);
+    /*min-height: 100%; /*De este modo cada section siempre ocupera el 100% de la pantalla del article-container*/
+    /*height: 100%; /* Combinado con la propiedad min-heigh cada section ira creciendo conforme al contenido */
     margin-bottom: 1px; /* Espacio entre secciones */
     padding: 10px; /*Espacio entre la section y el article-container*/
 }
@@ -216,6 +219,11 @@ este se muestra por unos segundos debido al keyframe*/
     left: 0; /*Vuelve a poner la posicion left del menu a su valor original para que se muestre*/
     transition: left 1s; /*Transicion que tendra la aparacion del menu*/
 }
+@media screen and (max-width: 480px){
+    .article-container{
+        flex-wrap: wrap; /*Se aplicara un wrap despues de bajar de 480px asi toda la pantalla se encoja*/
+    }
+}
 
 /*||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||*/
 /*               FIN DISEÑO RESPONSIVE-MENU NAVEGABLE               */
@@ -316,19 +324,117 @@ clase dropdown_arrow se le agregar un transform para rotar la flecha 180°*/
 /*------------------------------------------------------------------*/
 /*                          SECCION DE CONTACTO                     */
 /*------------------------------------------------------------------*/
-.contact_div{
-    display: flex;
-    flex-wrap: wrap; /*Con wrap los elementos se adaptaran al tamaño de la pantalla, posicionandose uno debajo de otro en caso de ser necesario*/
-    height: 100%; /*le aplico un tamaño del 100% de height de la pantalla*/
-    width: 90%;
-    align-items: center; /*Alinea verticalmente los elementos dentro de contact_div*/
-    justify-content: center; /*Alinea horizontalmente los elementos dentro de contact_div*/
-    background-color: crimson;
+.contact-div{
+    background-color: rgb(255, 255, 255);
     margin: auto; /*Centra el div respecto a la section "contact" dejando margenes iguales a la izquierda y derecha*/
+    box-shadow: 0 0 24px 0 rgba(0, 0, 0, 0.12);
+    padding: 1rem; /*Espacio entre el contenedor principal y los demas contenedores dentro*/
 }
-.contact-form label{
-    display: block;
+
+/*Estilos para el titulo*/
+
+.contact-title-div{
+    font-size: 24px;
+    color: #105094;
+    background-color: rgb(255, 255, 255);
+    border-bottom: 3px solid #489de8;
+    padding-bottom: 1rem;
+    margin-bottom: 1rem;;
 }
-.contact-form button{
-    display: block;
+
+/*Estilos para fomulario*/
+
+.contact-form-div{
+    display: grid; /*Utilizo grid para separar en dos columnas el div*/
+    grid-template-rows: 1fr; /*Tamaño de las filas*/
+    grid-template-columns: 2fr 1fr; /*Creo dos columnas de igual tamaño*/
+    gap: 0px 2rem; /*1rem de espaciado entre ambas columnas*/
+
+    padding-top: 1rem; /*Espacio entre el div del form y el div del titulo*/
+}
+.contact-form{
+    display: flex;
+    flex-direction: column; /*Indica que los elementos hijos del form se colocen en filas, es decir uno debajo de otro*/
+    
+    box-shadow: 0 0 24px 0 rgba(0, 0, 0, .15);
+    padding: 2rem; /*Espacio entre los bordes del form y sus elementos dentro*/
+}
+    .contact-form label{
+        padding: .5rem 0; /*Espaciado superior e inferior en las etiquetas*/
+        display: block;
+    }
+    .contact-form input{
+        padding: 0.375rem 0.75rem; /*Espaciado entre el texto del input y sus bordes*/
+        display: block;
+        border: solid 1px #dee2e6;
+        height: 2.5rem; /*Alto del input*/
+        margin-bottom: 1rem; /*Cada input dejara un margen de 1 rem del lado de abajo*/
+    }
+        /*Estilo del input al ganar foco (hacer click sobre el)*/
+        .contact-form input:focus{
+            outline: none; /*Quito los bordes por defecto cuando se hace click en el input*/
+            border: solid 1px #489de8; /*Cambio el color del borde al ganar el foco*/
+        }
+    .contact-form textarea{
+        padding: 0.375rem 0.75rem; /*Espaciado entre el texto del textarea y sus bordes*/
+        resize: none; /*Evito que el textarea pueda ser reajustado manualmente*/
+        display: block;
+        border: solid 1px #dee2e6;
+    }
+        /*Estilo del input al ganar foco (hacer click sobre el)*/
+        .contact-form textarea:focus{
+            outline: none; /*Quito los bordes por defecto cuando se hace click en el input*/
+            border: solid 1px #489de8; /*Cambio el color del borde al ganar el foco*/
+        }
+    .contact-form button{
+        margin: 1rem auto 0; /*Dejo 1 rem entre el boton y el textarea, auto para centrar el div y 0 de abajo*/
+        width: 50%; /*Tamaño del boton respecto al contenedor*/
+        border: none; /*Le quito los bordes al boton*/
+        color: white; /*Color del texto del boton*/
+        cursor: pointer; /*Al posicionar el curso en el boton cambia al diseño pointer*/
+        background-color: #1365b6; 
+        padding: .7rem;
+        font-size: 1.2rem;
+        border-radius: 4px; /*Redondeo del boton*/
+        display: block;
+    }
+        /*Estilo del boton al pasar el mouse sobre este*/
+        .contact-form button:hover{
+            background-color: #105094; /*Cambio el color del fondo del boton*/
+            transition-duration: 0.5s; /*Duracion del cambio de estilos*/
+            text-shadow: 1px 1px 10px rgba(255, 255, 255, 0.3); /*Le doy un brillo al texto del boton*/
+        }
+
+.contact-extra{
+    padding: 1rem;
+    box-shadow: 0 0 24px 0 rgba(0, 0, 0, .15);
+
+    /*Utilizo flex para centrar su contenido*/
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+    .contact-extra img{
+        width: 90px;
+        height: 120px;
+        opacity: 1;
+    }
+    .contact-extra iframe{
+        width: 90%;
+        height: 60%;
+        border: none;
+    }
+
+/*||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||*/
+/*                  DISEÑO RESPONSIVE-SECCION CONTACTO                */
+/*||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||*/
+
+/*Este estilo se aplicara cuando la resolucion de la pantalla sea 768px o menos*/
+@media screen and (max-width: 1200px){
+    .contact-form-div{
+        grid-template-rows: repeat(2, 1fr); /*Tamaño de las filas*/
+        grid-template-columns: 1fr; /*Creo dos columnas de igual tamaño*/
+        gap: 2rem 0; /*1rem de espaciado entre ambas columnas*/
+    }
 }
