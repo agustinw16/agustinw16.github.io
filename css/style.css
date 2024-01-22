@@ -380,6 +380,7 @@ clase dropdown_arrow se le agregar un transform para rotar la flecha 180°*/
         resize: none; /*Evito que el textarea pueda ser reajustado manualmente*/
         display: block;
         border: solid 1px #dee2e6;
+        font-family: "Open Sans", sans-serif; /*Para forzar el tipo de fuente del textarea*/
     }
         /*Estilo del input al ganar foco (hacer click sobre el)*/
         .contact-form textarea:focus{
@@ -426,6 +427,58 @@ clase dropdown_arrow se le agregar un transform para rotar la flecha 180°*/
         height: 60%;
         border: none;
     }
+
+/*Clase para la Ventana modal*/
+.modal{
+    /*Con los primeros 4 valores en 0 posiciono la ventana modal en el centro de la pantalla*/
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #111111bd;
+    display: flex;
+    opacity: 0; /*Opacidad 0 para que permanezca oculta*/
+    pointer-events: none; /*Le quito interaccion con el puntero*/
+    transition: opacity .6s;
+    z-index: 3;
+}
+/*Clase para mostrar las ventanas modal*/
+.modal--show{
+    opacity: 1; /*Opacidad en 1 para mostrar la ventana*/
+    pointer-events: unset; /*Le agrego interaccion con el puntero*/
+    transition: opacity .6s;
+}
+/*Clase para el Contenido de las Ventanas modal ELIMINAR*/
+.modalContenido{
+    /*Valores para el tamaño y posicion de la ventana modal*/
+    margin: auto;
+    width: 90%;
+    max-width: 600px;
+    max-height: 90%;
+    background-color: #fff;
+    border-radius: 6px;
+    padding: 2em 1em;
+    /*Valores para la disposicion de los elementos de la ventana (titulo y botones)*/
+    display: grid;
+    gap: 1em;
+    place-items: center;
+    grid-auto-columns: 100%;
+    grid-template-rows: repeat(2,auto);
+}
+.modalTitulo{
+    text-align: center; /*Para centrar el centro y que no este todo corrido a la izquierda*/
+    color: #105094;
+}
+.modalBtnClose{
+    border: none; /*Le quito los bordes al boton*/
+    color: white; /*Color del texto del boton*/
+    cursor: pointer; /*Al posicionar el curso en el boton cambia al diseño pointer*/
+    background-color: #1365b6; 
+    padding: .3rem;
+    font-size: 1.2rem;
+    border-radius: 4px; /*Redondeo del boton*/
+}
 
 /*||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||*/
 /*                  DISEÑO RESPONSIVE-SECCION CONTACTO                */
