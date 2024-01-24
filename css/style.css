@@ -503,16 +503,80 @@ clase dropdown_arrow se le agregar un transform para rotar la flecha 180°*/
 /*------------------------------------------------------------------*/
 /* #region ABOUT STYLE*/
 
-/*Estilos para fomulario*/
+/*Estilos para el div principal de la seccion about*/
 .about-inner-div{
     display: grid; /*Utilizo grid para separar en dos columnas el div*/
     grid-template-rows: 1fr; /*Tamaño de las filas*/
     grid-template-columns: 1fr 1fr; /*Creo dos columnas de igual tamaño*/
     gap: 0px 2rem; /*1rem de espaciado entre ambas columnas*/
-
-    padding-top: 1rem; /*Espacio entre el div del form y el div del titulo*/
+    
+    padding: 2rem 0; /*El contenido dejara un espacio de 2rem(arriba y abajo) respecto a los bordes del div*/
 }
 
+/*Estilo del contenedor de las imagenes*/
+.gallery{
+    position: relative;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr; /*Creo 3 columnas iguales*/
+    grid-gap:10px; /*Separacion entre las columnas*/
+    height: 500px; /*Alto del contenedor*/
+    background: #ffffff; /*fondo del contenedor*/
+    transition: 0.25s; /*Transicion para las propiedades definidas arriba(en este caso en grid-template-columns al hacer hover y el filtro grayscale)*/
+}
+/*Estilo para los div que contienen las imagenes*/
+.gallery .box{
+    position: relative;
+    background: var(--img); /*Defino la variable "img" como background y le asigno un url de cada imagen a traves del index.html*/
+    background-position: center; /*Posicion del background*/
+    background-size: cover;/*Con cover la imagen se escalará según sea necesario para cubrir el contenedor (puede dejar contenido fuera)*/
+    transition: 0.25s; /*Transicion para las propiedades(en este caso el filtro grayscale y brightness al hacer hover)*/
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    filter: grayscale(0) brightness(1); /*Le doy un filtro gris(0) es decir sin efecto y un brillo(1) es decir lo normal*/
+}
+
+/*Estilo al pasar el mouse sobre el div gallery*/
+.gallery:hover .box{
+    filter: grayscale(1); /*Todo el contenedor tendra un filtro gris (las imagenes se haran grises)*/
+}
+/*Estilo al pasar el mouse sobre el div que contiene las imagenes*/
+.gallery .box:hover{
+    filter: grayscale(0) brightness(1); /*Cada div de imagen sobre el que pase el mouse se le quita el filtro gris y se le aumenta el brillo un 25%*/
+}
+
+/*Estilo para los elementos del contenedor que contiene las clase "one", se le aplicara un hover*/
+.gallery:has(.one:hover){
+    grid-template-columns: 2fr .5fr .5fr;
+}
+/*Estilo para los elementos del contenedor que contiene las clase "one", se le aplicara un hover*/
+.gallery:has(.two:hover){
+    grid-template-columns: .5fr 2fr .5fr;
+}
+/*Estilo para los elementos del contenedor que contiene las clase "one", se le aplicara un hover*/
+.gallery:has(.three:hover){
+    grid-template-columns: .5fr .5fr 2fr;
+}
+/*Estilo para el desvanecimiento de los bordes de la imagen*/
+.gallery .box::before{
+    content: ''; /*Genero un contenido vacio*/
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(rgb(252, 250, 250),transparent,transparent,transparent,transparent,transparent,#fff); 
+    /*Le doy un gradiente con esta forma para que cada imagen en las esquinas tenga un color igual al fondo, para dar el efecto de que cada imagen se combina con el fondo*/
+}
+.gallery .box:hover::before{
+    background: none; 
+}
+/*Estilo para los elementos hijos de "gallery" que sean "pares"*/
+.gallery .box:nth-child(even){
+    transform: translateY(1rem); /*Envio el div 1rem abajo*/
+}
+/*Estilo para los elementos hijos de "gallery" que sean "pares"*/
+.gallery .box:nth-child(odd){
+    transform: translateY(-1rem); /*Envio el div 1rem arriba*/
+}
 /*||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||*/
 /*                  DISEÑO RESPONSIVE-SECCION CONTACTO                */
 /*||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||*/
