@@ -322,28 +322,33 @@ clase dropdown_arrow se le agregar un transform para rotar la flecha 180°*/
 /*------------------------------------------------------------------*/
 
 /*------------------------------------------------------------------*/
-/*                          SECCION DE CONTACTO                     */
+/*                              SECCIONES                           */
 /*------------------------------------------------------------------*/
-.contact-div{
+
+/*Estilos para el div interior de las secciones*/
+.section-div{
     background-color: rgb(255, 255, 255);
     margin: auto; /*Centra el div respecto a la section "contact" dejando margenes iguales a la izquierda y derecha*/
     box-shadow: 0 0 24px 0 rgba(0, 0, 0, 0.12);
     padding: 1rem; /*Espacio entre el contenedor principal y los demas contenedores dentro*/
 }
 
-/*Estilos para el titulo*/
-
-.contact-title-div{
+/*Estilos para el titulo de las secciones*/
+.title-section-div{
     font-size: 24px;
     color: #105094;
     background-color: rgb(255, 255, 255);
     border-bottom: 3px solid #489de8;
     padding-bottom: 1rem;
-    margin-bottom: 1rem;;
+    margin-bottom: 1rem;
 }
 
-/*Estilos para fomulario*/
+/*------------------------------------------------------------------*/
+/*                          SECCION DE CONTACTO                     */
+/*------------------------------------------------------------------*/
+/* #region CONTACT STYLES*/
 
+/*Estilos para fomulario*/
 .contact-form-div{
     display: grid; /*Utilizo grid para separar en dos columnas el div*/
     grid-template-rows: 1fr; /*Tamaño de las filas*/
@@ -492,3 +497,32 @@ clase dropdown_arrow se le agregar un transform para rotar la flecha 180°*/
         gap: 2rem 0; /*1rem de espaciado entre ambas columnas*/
     }
 }
+/*#endregion*/
+/*------------------------------------------------------------------*/
+/*                             SECCION ABOUT                        */
+/*------------------------------------------------------------------*/
+/* #region ABOUT STYLE*/
+
+/*Estilos para fomulario*/
+.about-inner-div{
+    display: grid; /*Utilizo grid para separar en dos columnas el div*/
+    grid-template-rows: 1fr; /*Tamaño de las filas*/
+    grid-template-columns: 1fr 1fr; /*Creo dos columnas de igual tamaño*/
+    gap: 0px 2rem; /*1rem de espaciado entre ambas columnas*/
+
+    padding-top: 1rem; /*Espacio entre el div del form y el div del titulo*/
+}
+
+/*||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||*/
+/*                  DISEÑO RESPONSIVE-SECCION CONTACTO                */
+/*||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||*/
+
+/*Este estilo se aplicara cuando la resolucion de la pantalla sea 768px o menos*/
+@media screen and (max-width: 1200px){
+    .about-inner-div{
+        grid-template-rows: repeat(2, 1fr); /*Tamaño de las filas*/
+        grid-template-columns: 1fr; /*Creo dos columnas de igual tamaño*/
+        gap: 2rem 0; /*1rem de espaciado entre ambas columnas*/
+    }
+}
+/* #endregion */
