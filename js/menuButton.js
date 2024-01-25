@@ -3,8 +3,8 @@ const menuButton = document.getElementById('menu-button');
 
 // Verificar si ya se agregó el evento 'click' al botón
 if (!menuButton.dataset.eventListenerAdded){
-    menuButton.addEventListener('click', ()=>{
-
+    menuButton.addEventListener('click', (event)=>{
+        event.preventDefault(); /*Quito el evento por default que hacia volver la pagina al inicio al presionar el boton*/
         //Codigo para hacer el cambio de icono del boton para abrir y cerrar el menu
         const imagenBoton = document.getElementById('img-button-menu'); //guardo el elemento con el id img-button-menu
 
