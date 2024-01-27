@@ -536,6 +536,9 @@ clase dropdown_arrow se le agregar un transform para rotar la flecha 180°*/
     align-items: center;
     filter: grayscale(0) brightness(1); /*Le doy un filtro gris(0) es decir sin efecto y un brillo(1) es decir lo normal*/
 }
+.three{
+    background-size: 420px 560px !important;/**/
+}
 
 /*Estilo al pasar el mouse sobre el div gallery*/
 .gallery:hover .box{
