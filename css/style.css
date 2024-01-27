@@ -537,7 +537,7 @@ clase dropdown_arrow se le agregar un transform para rotar la flecha 180°*/
     filter: grayscale(0) brightness(1); /*Le doy un filtro gris(0) es decir sin efecto y un brillo(1) es decir lo normal*/
 }
 .three{
-    background-size: 420px 560px !important;/**/
+    background-size: cover!important;
 }
 
 /*Estilo al pasar el mouse sobre el div gallery*/
@@ -550,15 +550,15 @@ clase dropdown_arrow se le agregar un transform para rotar la flecha 180°*/
 }
 
 /*Estilo para los elementos del contenedor que contiene las clase "one", se le aplicara un hover*/
-.gallery:has(.one:hover){
+.gallery:has(.one:hover), .gallery:has(.one.touch){
     grid-template-columns: 2fr .5fr .5fr;
 }
 /*Estilo para los elementos del contenedor que contiene las clase "one", se le aplicara un hover*/
-.gallery:has(.two:hover){
+.gallery:has(.two:hover), .gallery:has(.two.touch){
     grid-template-columns: .5fr 2fr .5fr;
 }
 /*Estilo para los elementos del contenedor que contiene las clase "one", se le aplicara un hover*/
-.gallery:has(.three:hover){
+.gallery:has(.three:hover), .gallery:has(.three.touch){
     grid-template-columns: .5fr .5fr 2fr;
 }
 /*Estilo para el desvanecimiento de los bordes de la imagen*/
