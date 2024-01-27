@@ -529,8 +529,7 @@ clase dropdown_arrow se le agregar un transform para rotar la flecha 180°*/
     background: var(--img); /*Defino la variable "img" como background y le asigno un url de cada imagen a traves del index.html*/
     background-position: center; /*Posicion del background*/
     /*background-size: cover;/*Con cover la imagen se escalará según sea necesario para cubrir el contenedor (puede dejar contenido fuera)*/
-    background-size: auto 100%;
-    background-repeat: no-repeat;
+    background-size: 500px 660px;
     transition: 0.25s; /*Transicion para las propiedades(en este caso el filtro grayscale y brightness al hacer hover)*/
     display: flex;
     justify-content: center;
