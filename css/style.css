@@ -125,10 +125,10 @@ este se muestra por unos segundos debido al keyframe*/
 
 /*Estilo para la imagen de perfil*/
 .profile img {
-    margin: 15px auto;
+    margin: 15px auto; /*Los margenes izquierdos y derechos se calcularan automaticamente para centrar la imagen*/
     display: block;
-    height: 120px;
-    width: 130px;
+    height: auto;
+    width: 120px;
     border-radius: 50%!important;
 }
 /*Estilo para el titulo*/
@@ -529,25 +529,12 @@ clase dropdown_arrow se le agregar un transform para rotar la flecha 180°*/
     background: var(--img); /*Defino la variable "img" como background y le asigno un url de cada imagen a traves del index.html*/
     background-position: center; /*Posicion del background*/
     /*background-size: cover;/*Con cover la imagen se escalará según sea necesario para cubrir el contenedor (puede dejar contenido fuera)*/
-    background-size: 500px 660px;
+    background-size: 420px 560px;
     background-repeat: no-repeat;
     transition: 0.25s; /*Transicion para las propiedades(en este caso el filtro grayscale y brightness al hacer hover)*/
     display: flex;
     justify-content: center;
     align-items: center;
-    /*filter: grayscale(0) brightness(1); /*Le doy un filtro gris(0) es decir sin efecto y un brillo(1) es decir lo normal*/
-}
-.three{
-    /*background-size: 420px 560px !important;/**/
-}
-
-/*Estilo al pasar el mouse sobre el div gallery*/
-.gallery:hover .box{
-    /*filter: grayscale(1); /*Todo el contenedor tendra un filtro gris (las imagenes se haran grises)*/
-}
-/*Estilo al pasar el mouse sobre el div que contiene las imagenes*/
-.gallery .box:hover{
-    /*filter: grayscale(0) brightness(1); /*Cada div de imagen sobre el que pase el mouse se le quita el filtro gris y se le aumenta el brillo un 25%*/
 }
 
 /*Estilo para los elementos del contenedor que contiene las clase "one", se le aplicara un hover*/
@@ -561,18 +548,6 @@ clase dropdown_arrow se le agregar un transform para rotar la flecha 180°*/
 /*Estilo para los elementos del contenedor que contiene las clase "one", se le aplicara un hover*/
 .gallery:has(.three:hover), .gallery:has(.three.touch){
     grid-template-columns: .5fr .5fr 2fr;
-}
-/*Estilo para el desvanecimiento de los bordes de la imagen*/
-.gallery .box::before{
-    /*content: ''; /*Genero un contenido vacio*/
-    /*position: absolute;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(rgb(252, 250, 250),transparent,transparent,transparent,transparent,transparent,#fff); 
-    /*Le doy un gradiente con esta forma para que cada imagen en las esquinas tenga un color igual al fondo, para dar el efecto de que cada imagen se combina con el fondo*/
-}
-.gallery .box:hover::before{
-    background: none; 
 }
 /*Estilo para los elementos hijos de "gallery" que sean "pares"*/
 .gallery .box:nth-child(even){
