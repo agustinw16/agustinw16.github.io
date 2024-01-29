@@ -7,7 +7,8 @@ listElements.forEach(listElement => {
     
     if (!listElement.dataset.eventListenerAdded){ //Verifico si ya se le agrego al elemento el addEventListener (para que no se sigan agregando repetidos)
         //A cada elemento le agrego un evento que se activa al hacer click (la funcion se repetira con cada click)
-        listElement.addEventListener('click', () =>{ //El evento que le agrego es la siguiente funcion
+        listElement.addEventListener('click', (event) =>{ //El evento que le agrego es la siguiente funcion
+            event.preventDefault(); /*Quito el evento por default que hacia volver la pagina al inicio al presionar el boton*/
             /*Con classList tenemos acceso a las clases que posee el elemento en cuestion junto con una serie de metodos para manejarlas*/
             listElement.classList.toggle('arrow') /*toggle es un metodo de classList con la siguiente funcion: si la clase proporcionada
                                                 (en este caso 'arrow') se encuentra en la lista de clases la elimina, y si no se encuentra la agrega*/

@@ -86,11 +86,27 @@
                     <div class="title-section-div"><h1>About</h1></div>
                     <div class="about-inner-div">
                         <div class="gallery">
-                            <div class="box one" style="--img:url(../assets/jav1.webp)" ></div>
-                            <div class="box two" style="--img:url(../assets/jav2.webp)" ></div>
-                            <div class="box three" style="--img:url(../assets/jav3.webp)" ></div>
+                            <div class="box one" style="--img:url(../assets/jav1.webp)"></div>
+                            <div class="box two" style="--img:url(../assets/jav2.webp)"></div>
+                            <div class="box three" style="--img:url(../assets/jav3.webp)"></div>
+                            <!--
+                            <div class="box one" style="--img:url(../assets/jav1.webp)" onclick="clickImage('one')"></div>
+                            <div class="box two" style="--img:url(../assets/jav2.webp)" onclick="clickImage('two')"></div>
+                            <div class="box three" style="--img:url(../assets/jav3.webp)" onclick="clickImage('three')"></div>
+                            -->
                         </div>
-                        <div></div>
+                        <div class="information-about">
+                            <div><strong>Name:</strong><span>Juan Agustin Veliz</span></div>
+                            <div><strong>Age:</strong><span>26</span></div>
+                            <div><strong>Date of birth:</strong><span>19/11/1997</span></div>
+                            <div><strong>Nationality:</strong><span>Argentine</span></div>
+                            <p>
+                                Hi, I'm Agustín, a fifth-year computer engineering student. In addition to my academic background, 
+                                I'm constantly seeking to learn new technologies and IT skills on my own. Outside the academic realm, 
+                                I'm an active individual who enjoys engaging in physical activities and traveling. 
+                                I consider myself a committed and perseverant person who always seeks to move forward in a positive manner.
+                            </p>
+                        </div>
                     </div>
                 </div>
             </section>
@@ -109,9 +125,7 @@
         
                                 <label for="contact-message">Message</label>
                                 <textarea id="contact-message" name="message" cols="30" rows="10" required="true"></textarea>
-                                <!--
-                                <input type="submit" value="Enviar"/> 
-                                Al ser de tipo submit ese dato se podria enviar a un servidor -->
+                                <!-- Al ser de tipo submit ese dato se podria enviar a un servidor -->
                                 <button type="submit" id="contact-send">Send</button>
                             </form>
                             <div class="contact-extra">
@@ -122,7 +136,6 @@
                         </div>   
                     </div>
             </section>
-            <section id="about" class="article-section">About</section>
         </div>
 
         <!--VENTANA MODAL PARA CONFIRMAR ENVIO DE MENSAJE -->
