@@ -196,8 +196,10 @@ este se muestra por unos segundos debido al keyframe*/
     */
     /*Estilo para que el menu se deslize a la izquierda y se esconda cuando la resolucion sea menor 768px*/
     #header{
-        left: -300px;
-        transition: left 1s;
+        transform: translateX(-100%);
+        transition: transform 1s;
+        /*left: -300px;
+        transition: left 1s;*/
     }
     /*Estilo para que el area de sections se deslize a la izquierda y se muestre en toda la pantalla cuando la resolucion sea menor 768px*/
     .article-container{
@@ -216,8 +218,10 @@ este se muestra por unos segundos debido al keyframe*/
 }
 /*Esta clase tendra efecto solo cuando se de click al boton para abrir el menu (se agrega la clase showmenu al contenedor principal)*/
 .showmenu #header{
-    left: 0; /*Vuelve a poner la posicion left del menu a su valor original para que se muestre*/
-    transition: left 1s; /*Transicion que tendra la aparacion del menu*/
+    transform: translateX(0);
+    transition: transform 1s;
+    /*left: 0; /*Vuelve a poner la posicion left del menu a su valor original para que se muestre*/
+    /*transition: left 1s; /*Transicion que tendra la aparacion del menu*/
 }
 @media screen and (max-width: 480px){
     .article-container{
