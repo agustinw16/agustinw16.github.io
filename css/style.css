@@ -12,10 +12,6 @@ body{
 
 .container{
     width: 100%;
-    /*height: 100vh; /*le aplico un tamaño del 100% de height de la pantalla*/
-    /*display: grid;*/
-    /*grid-template-columns: 300px 2fr; /*Defino el tamaño de las columnas, 300px para la parte del menu*/
-    /*grid-template-areas: "nav article"; /*Defino las dos areas*/
     z-index: 1; /*Le indico un z-index de uno para colocar otros elementos por arriba de este*/
 }
 
@@ -34,7 +30,6 @@ body{
     transition: padding-left 1s; /*Le doy una transicion para que cuando el tamaño de la pantalla supere el max-width se muestre lentamente*/
     width: 100%; 
     height: 100%; /*le aplico un tamaño del 100% de height de la pantalla*/
-    /*grid-area: article;*/
     /*max-height: 100%; /* Establece un alto máximo para permitir el scroll */
     /*overflow-y: auto; /* Habilita el scroll cuando sea necesario */
 }
@@ -99,28 +94,9 @@ body{
     z-index: 2; /*Le indico un index para que el menu siempre aparezca sobre el contenedor (estara arriba de los section)*/
     transition: all 0.99s; /*Transicion para que aparezca cuando la pantalla crezca*/
 
-    /*Propiedades para realizar la animacion del keyframe de aparecer al cargar la pagina
-    animation-name: aparecer; /*Nombre de la animacion
-    animation-duration: 0.5s; /*Duracion de la animacion
-    */
-
     padding: 0 15px; /*Espaciado de izquierda y derecha, entre el contenido y los bordes*/
     background: #040b14; /*Color del fondo*/
     overflow-y: auto; /*Se mostrara un scroll si hay contenido que sobrepasa espacio visible*/
-    /*grid-area: nav; /*Area del grid*/
-}
-
-/*El siguiente keyframe no lo aplico ya que, al cargar la pagina en dispositivos con menor resolucion donde el menu deberia estar oculto, 
-este se muestra por unos segundos debido al keyframe*/   
-@keyframes aparecer { 
-    from { /*Valores al inicio de la animaciones*/
-      opacity: 0;
-      left: -1%; 
-    }
-    to { /*Valores al final de la animaciones*/
-      opacity: 1;
-      left: 0; 
-    }
 }
 
 /*Estilo para la imagen de perfil*/
@@ -187,17 +163,10 @@ este se muestra por unos segundos debido al keyframe*/
     .menu-button{
         display:block;
     } 
-    /*
-    El estilo del grid cambiara, ahora sera solo una columna que ocupa toda la pantalla
-    .container{
-        grid-template-columns: 1fr; 
-        grid-template-areas: "article"; Defino una sola area areas
-    }
-    */
     /*Estilo para que el menu se deslize a la izquierda y se esconda cuando la resolucion sea menor 768px*/
     #header{
-        transform: translateX(-100%);
-        transition: transform 1s;
+        transform: translateX(-100%); /*Con traslate x -100 oculto el menu de forma horizontal (mejor rendimiento en movil que left)*/
+        transition: transform 1.01s;
         /*left: -300px;
         transition: left 1s;*/
     }
@@ -218,7 +187,7 @@ este se muestra por unos segundos debido al keyframe*/
 }
 /*Esta clase tendra efecto solo cuando se de click al boton para abrir el menu (se agrega la clase showmenu al contenedor principal)*/
 .showmenu #header{
-    transform: translateX(0);
+    transform: translateX(0); /*Con traslate x en 0 vuelvo a posicionar el menu en su posicion original (mejor rendimiento en movil que left)*/
     transition: transform 1s;
     /*left: 0; /*Vuelve a poner la posicion left del menu a su valor original para que se muestre*/
     /*transition: left 1s; /*Transicion que tendra la aparacion del menu*/
@@ -340,7 +309,7 @@ clase dropdown_arrow se le agregar un transform para rotar la flecha 180°*/
 /*Estilos para el titulo de las secciones*/
 .title-section-div{
     font-size: 24px;
-    color: #105094;
+    color: #143b66;
     background-color: rgb(255, 255, 255);
     border-bottom: 3px solid #489de8;
     padding-bottom: 1rem;
@@ -357,7 +326,7 @@ clase dropdown_arrow se le agregar un transform para rotar la flecha 180°*/
     display: grid; /*Utilizo grid para separar en dos columnas el div*/
     grid-template-rows: 1fr; /*Tamaño de las filas*/
     grid-template-columns: 2fr 1fr; /*Creo dos columnas de igual tamaño*/
-    gap: 0px 2rem; /*1rem de espaciado entre ambas columnas*/
+    gap: 0px 2rem; /*2rem de espaciado entre ambas columnas*/
 
     padding-top: 1rem; /*Espacio entre el div del form y el div del titulo*/
 }
@@ -597,3 +566,208 @@ clase dropdown_arrow se le agregar un transform para rotar la flecha 180°*/
     }
 }
 /* #endregion */
+/*------------------------------------------------------------------*/
+/*                            SECCION RESUME                        */
+/*------------------------------------------------------------------*/
+/* #region RESUME STYLE*/
+/*Estilo para el div principal de la seccion resume*/
+.resume-inner-div{
+    display: grid; /*Divido el layout de div en 3 secciones de las siguiente forma*/
+    grid-template-areas: "skill education"
+                         "skill education"
+                         "skill language";
+    grid-template-columns: 1fr 1fr; /*cada columna ocupara 1fr*/
+    gap: 1rem; /*Separacion entre columnas y filas de 1 rem*/
+}
+/*Estilo para los divs que actuaran como tarjetas de informacion*/
+.card{
+    background-color: #ffffff;
+    box-shadow: 0 0 24px 0 rgba(0, 0, 0, .15);
+    border-radius: 5px;
+    padding: .5rem; /*Espacio entre el borde del div y su contenido*/
+}
+/*Estilo para el titulo de las tarjetas*/
+.card-title{
+    font-size: larger;
+    display: block;
+    color: #105094;
+    margin-bottom: 1rem;
+}
+/*Estilo para el div que contiene los skills*/
+.skill-card{
+    grid-area: skill; /*Indico que area del div principal ocupara*/
+    display: flex; /*Hago flex la tarjeta de skill para que la <ul> pueda crecer hasta el final de este*/
+    flex-direction: column; /*Los acomodo en columna de manera que los elementos se pongan uno debajo de otro*/
+}   
+    /*Estilo para la lista de habilidades*/
+    .skill-list{
+        list-style: none; /*Quito los estilos por defecto de la lista*/
+
+        height: 100%; /*A la lista la hago crecer un 100% asi ocupe lo que queda de la tarjeta skill-card*/
+        display: flex; /*Convierto la lista en flex*/
+        flex-direction: column; /*Hago que cada elemento se posicione uno debajo de otro*/
+        justify-content: space-around; /*Indico que los elementos de lista <li> se acomoden (dejando el mismo espacio) dependiendo del espacio disponible*/
+        gap: 1rem;  /*Cuando el espacio del contenedor sea chico y space-around no se apreciable, dejaran siempre 1rem de espacio entre ellos*/
+    }
+    /*Estilo para cada fila de la lista  */
+    .skill-list li{
+        display: flex; /*Hago flex cada fila asi la imagen y el div de skills se posicione a la par*/
+        align-items: center; /*Centro la imagen y el div al mismo nivel*/
+        gap: .5rem; /*Espaciado entre la imagen y el div*/
+        /*margin-bottom: 1rem; /*Espacio inferior entre cada lista*/
+    }
+    /*Estilo para las imagenes dentro de la lista*/
+    .skill-list img{
+        /*Tanto el tamaño y el ancho son los mismos que el div skill-list-element*/
+        width: 31.19px;
+        height: 31.19px;
+    }
+    /*Estilo para los divs de elementos dentro de la lista*/
+    .skill-list-element{
+        width: 100%; /*Los divs que contienen el nombre y progreso de los skills ocupara el 100% restante del li flex*/
+    }
+    /*Estilo para el div que contiene el nombre del skill y su nivel*/
+    .skill-name{
+        display: flex;
+        justify-content: space-between; /*Separo el strong y span a las esquinas del div*/
+        align-items: flex-end; /*Envio los elementos al fondo del div, es decir al borde inferior del div que los contiene */
+    }
+    /*Estilo para el span dentro del div contenedor de nombre de skill y nivel*/
+    .skill-name span{
+        font-size: 12px;
+    }
+    /*Estilo del div que simulara la barra de progreso (vacia)*/
+    .progress-bar{
+        margin-top: .2rem ; /*Espacio superior entre las barras de progreso y los nombres*/
+        position: relative;
+        width: 100%;
+        height: 6px;
+        border-radius: 3px;
+        background: #cccaca;
+        overflow: hidden; /*Como el contenido "after" lo translade -100% fuera de la barra de progreso, entonces oculto todo lo que este fuera*/
+    }
+    /*Animacion que movera la posicion del elemento "after"*/
+    @keyframes chargebar{
+        to{
+            /*El calculo se realiza: -100% + x% = -y% (el valor x lo obtengo como variable de cada elemento atraves del html)*/
+            transform: translateX(calc(-100% + var(--level)));
+        }
+    }
+    /*Estilo para crear un contenido que simulara la carga de la barra de progreso*/
+    .progress-bar::after{
+        content: '';
+        position: absolute; /*Posicion absoluta respecto a progress-bar*/
+        background: #1365b6;
+        width: 100%;
+        height: 6px;
+        border-radius: 3px;
+        transform: translateX(-100%); /*Traslado el contenido "after" a la izquierda con -100%, entonces mientras menor sea el % negativo, mas aparecera*/
+        transition: transform 2s ease-in-out;
+    }
+    /*Este estilo se aplicaa cuando a cada div de barra de progreso se le agregue la clase "activada" atraves de js*/
+    .progress-bar.charge-bar::after{
+        /*animation: chargebar 2s ease-in-out forwards; /*Indico que se realiza la animacion y que se quede en su posicion final con forwards*/
+        transform: translateX(calc(-100% + var(--level))); /*Funciona igual que con el keyframe pero sin necesidad de este*/
+    }
+
+.education-card{
+    grid-area: education;
+}
+   /*Estilo para la lista de educacion*/
+   .education-list{
+        list-style: none; /*Quito los estilos por defecto de la lista*/
+    }
+    /*Estilo para cada fila de la lista  */
+    .education-list li{
+        display: flex;/*Hago flex cada fila asi el contenido se posicione a la par*/
+        gap: 1rem; /*Espaciado entre los elementos del li*/
+        margin-bottom: 1rem; /*Espacio inferior entre cada lista*/
+        background-color: rgb(241, 241, 241);
+        border-radius: 4px;
+        padding: .5rem; /*Espaciado entre los bordes de la lista y su contenido*/
+    }
+    /*Estilo para el div que acturada como contenedor de la imagen de la educacion*/
+    .education-img{
+        display: grid; /*Le asigno un display grid para que el contenedor adopte un tamaño y la imagen del subcontenedor pueda verse*/
+        border-radius: 4px;
+        width: 20%; /*La imagen ocupara un 20% del ancho de la lista*/
+        background-color: #fff;
+    }
+    /*Estilo para el div que tendra como fondo la imagen de la educacion*/
+    .education-img-box{
+        background-image: var(--img);
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-position: center;
+    }
+    /*Estilo para el div que tendra toda la informacion de una educacion en particular*/
+    .education-info{
+        width: 80%; /*Indico que la informacion ocupara un 80% del contenedor*/
+    }
+    /*Estilo para el titulo de la educacion, que esta dentro de "education-ifno"*/
+    .education-title{
+        display: block; /*Convierto el strong en block para poder ponerle margen bottom*/
+        font-size: large;
+        margin-bottom: .5rem; /*Dejo un espacio inferior para separarlo de la informacion de la adicional de la educacion*/
+    }
+    /*Estilo para cada linea que contiene informacion adicional de la carrera*/
+    .education-info-line{
+        display: flex;
+        align-items: center; /*Centro horizontalmente los elementos*/
+        flex-wrap: wrap; 
+        margin: .25rem 0px; /*Dejo .25rem de espacio arriba y abajo entre cada line*/
+    }
+    /*Estilo para las imagenes dentro de cada line de informacion adicional*/
+    .education-info-line img{
+        width: 20px;
+        height: 20px;        
+    }
+    /*Estilo para los parrafos dentro de cada linea de informacion adicional*/
+    .education-info-line p{
+        margin-left: .5rem;
+    }
+    /*Estilo para el enlace dentro la linea de informacion adicional*/
+    .education-info-line a{
+        color: #489de8;
+        font-weight: 500;
+    }
+    /*Estilo para el enlace dentro la linea de informacion adicional cuando fue visitado*/
+    .education-info-line a:visited {
+        color: #489de8;
+    }
+
+.language-card{
+    grid-area: language
+}
+    /*Estilo para la lista de lenguaje*/
+    .language-list{
+        list-style: none; /*Quito los estilos por defecto de la lista*/
+    }
+    /*Estilo para cada fila de la lista  */
+    .language-list li{
+        display: flex; /*Hago flex cada fila asi el contenido se posicione a la par*/
+        align-items: center; /*Centro el contenido al mismo nivel*/
+        gap: .2rem; /*Espaciado entre los elementos del li*/
+        margin-bottom: 1rem; /*Espacio inferior entre cada lista*/
+    }
+    /*Estilo para las imagenes dentro de la lista*/
+    .language-list img{
+        width: 30px;
+        height: 30px;
+    }
+
+/*||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||*/
+/*                  DISEÑO RESPONSIVE-SECCION RESUME                */
+/*||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||*/
+
+/*Este estilo se aplicara cuando la resolucion de la pantalla sea 1200px o menos*/
+@media screen and (max-width: 1200px){
+    .resume-inner-div{
+        grid-template-areas: "skill"
+                             "education"
+                             "language";
+        grid-template-columns: 1fr; /*cada columna ocupara 1fr*/
+        gap: 1rem; /*Separacion entre columnas y filas de 1 rem*/
+    }
+}
+/* #endregion*/
