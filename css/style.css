@@ -16,8 +16,7 @@ body{
 }
 
 .article-container {
-    display: flex;
-    flex-direction: column;
+    display: grid; /*De esta manera todo el article container se encojera junto con su contenido haciendose responsivo*/
     /*position: fixed; /*El area de sections se mostrara siempre en la pantalla por mas que se haga scroll (ocupara todo el espacio por mas que se agrande o disminuya la pantalla)*/
     /*FORMA 1 para mostrar menu y secciones*/
     /*
@@ -35,7 +34,6 @@ body{
 }
 
 .article-section{
-    color: black;
     background: rgb(226, 131, 131);
     /*min-height: 100%; /*De este modo cada section siempre ocupera el 100% de la pantalla del article-container*/
     /*height: 100%; /* Combinado con la propiedad min-heigh cada section ira creciendo conforme al contenido */
@@ -192,12 +190,13 @@ body{
     /*left: 0; /*Vuelve a poner la posicion left del menu a su valor original para que se muestre*/
     /*transition: left 1s; /*Transicion que tendra la aparacion del menu*/
 }
-@media screen and (max-width: 480px){
+/*
+@media screen and (max-width: 360px){
     .article-container{
-        flex-wrap: wrap; /*Se aplicara un wrap despues de bajar de 480px asi toda la pantalla se encoja*/
+        flex-wrap: wrap; /*Se aplicara un wrap despues de bajar de 480px asi toda la pantalla se encoja
     }
 }
-
+*/
 /*||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||*/
 /*               FIN DISEÑO RESPONSIVE-MENU NAVEGABLE               */
 /*||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||*/
@@ -299,7 +298,7 @@ clase dropdown_arrow se le agregar un transform para rotar la flecha 180°*/
 /*------------------------------------------------------------------*/
 
 /*Estilos para el div interior de las secciones*/
-.section-div{
+.section-div{    
     background-color: rgb(255, 255, 255);
     margin: auto; /*Centra el div respecto a la section "contact" dejando margenes iguales a la izquierda y derecha*/
     box-shadow: 0 0 24px 0 rgba(0, 0, 0, 0.12);
@@ -333,7 +332,6 @@ clase dropdown_arrow se le agregar un transform para rotar la flecha 180°*/
 .contact-form{
     display: flex;
     flex-direction: column; /*Indica que los elementos hijos del form se colocen en filas, es decir uno debajo de otro*/
-    
     box-shadow: 0 0 24px 0 rgba(0, 0, 0, .15);
     padding: 1rem 2rem; /*Espacio entre los bordes del form y sus elementos dentro*/
 }
