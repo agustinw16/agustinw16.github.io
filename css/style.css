@@ -737,21 +737,19 @@ clase dropdown_arrow se le agregar un transform para rotar la flecha 180°*/
 .language-card{
     grid-area: language
 }
-    /*Estilo para la lista de lenguaje*/
-    .language-list{
-        list-style: none; /*Quito los estilos por defecto de la lista*/
+    .language-info{
+        display: grid;
+        grid-template-columns: repeat(2,1fr);/**/
+        gap: 1rem;
     }
-    /*Estilo para cada fila de la lista  */
-    .language-list li{
-        display: flex; /*Hago flex cada fila asi el contenido se posicione a la par*/
-        align-items: center; /*Centro el contenido al mismo nivel*/
-        gap: .2rem; /*Espaciado entre los elementos del li*/
-        margin-bottom: 1rem; /*Espacio inferior entre cada lista*/
+    .language-box{
+        width: 100%;
+        background-color: rgb(241, 241, 241);
+        border-radius: 4px;
+        padding: .5rem;
     }
-    /*Estilo para las imagenes dentro de la lista*/
-    .language-list img{
-        width: 30px;
-        height: 30px;
+    .language-box p{
+        margin-top: .5rem;
     }
 
 /*||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||*/
@@ -766,6 +764,9 @@ clase dropdown_arrow se le agregar un transform para rotar la flecha 180°*/
                              "language";
         grid-template-columns: 1fr; /*cada columna ocupara 1fr*/
         gap: 1rem; /*Separacion entre columnas y filas de 1 rem*/
+    }
+    .language-info{
+        /*grid-template-columns: 1fr;/**/
     }
 }
 /* #endregion*/
