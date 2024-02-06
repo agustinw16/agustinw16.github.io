@@ -34,7 +34,7 @@ body{
 }
 
 .article-section{
-    background: rgb(226, 131, 131);
+    background: #f1f7fe;
     /*min-height: 100%; /*De este modo cada section siempre ocupera el 100% de la pantalla del article-container*/
     /*height: 100%; /* Combinado con la propiedad min-heigh cada section ira creciendo conforme al contenido */
     margin-bottom: 1px; /* Espacio entre secciones */
@@ -680,7 +680,7 @@ clase dropdown_arrow se le agregar un transform para rotar la flecha 180°*/
         display: flex;/*Hago flex cada fila asi el contenido se posicione a la par*/
         gap: 1rem; /*Espaciado entre los elementos del li*/
         margin-bottom: 1rem; /*Espacio inferior entre cada lista*/
-        background-color: rgb(241, 241, 241);
+        background: url(/assets/fondo.webp),linear-gradient(to right,#c0dbf7,#88bef1);
         border-radius: 4px;
         padding: .5rem; /*Espaciado entre los bordes de la lista y su contenido*/
     }
@@ -740,11 +740,11 @@ clase dropdown_arrow se le agregar un transform para rotar la flecha 180°*/
     .language-info{
         display: grid;
         grid-template-columns: repeat(2,1fr);/**/
-        gap: 1rem;
+        gap: .5rem;
     }
     .language-box{
         width: 100%;
-        background-color: rgb(241, 241, 241);
+        background: linear-gradient(to right,#c0dbf7,#88bef1);
         border-radius: 4px;
         padding: .5rem;
     }
