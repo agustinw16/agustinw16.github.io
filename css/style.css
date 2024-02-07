@@ -606,6 +606,8 @@ clase dropdown_arrow se le agregar un transform para rotar la flecha 180°*/
         flex-direction: column; /*Hago que cada elemento se posicione uno debajo de otro*/
         justify-content: space-around; /*Indico que los elementos de lista <li> se acomoden (dejando el mismo espacio) dependiendo del espacio disponible*/
         gap: 1rem;  /*Cuando el espacio del contenedor sea chico y space-around no se apreciable, dejaran siempre 1rem de espacio entre ellos*/
+
+        margin-bottom: 1rem; /*Espacio inferior entre la lista y el borde inferior del div skill-card*/
     }
     /*Estilo para cada fila de la lista  */
     .skill-list li{
@@ -680,7 +682,7 @@ clase dropdown_arrow se le agregar un transform para rotar la flecha 180°*/
         display: flex;/*Hago flex cada fila asi el contenido se posicione a la par*/
         gap: 1rem; /*Espaciado entre los elementos del li*/
         margin-bottom: 1rem; /*Espacio inferior entre cada lista*/
-        background: url(/assets/fondo.webp),linear-gradient(to right,#c0dbf7,#88bef1);
+        background: url(/assets/fondo.webp),linear-gradient(#c0dbf7,#fff,#c0dbf7);
         border-radius: 4px;
         padding: .5rem; /*Espaciado entre los bordes de la lista y su contenido*/
     }
@@ -726,22 +728,37 @@ clase dropdown_arrow se le agregar un transform para rotar la flecha 180°*/
     }
     /*Estilo para el enlace dentro la linea de informacion adicional*/
     .education-info-line a{
-        color: #489de8;
+        color: #105094;
         font-weight: 500;
     }
     /*Estilo para el enlace dentro la linea de informacion adicional cuando fue visitado*/
     .education-info-line a:visited {
-        color: #489de8;
+        color: #105094;
     }
 
 .language-card{
-    grid-area: language
-}
+    grid-area: language;
+}   
     .language-info{
         display: grid;
         grid-template-columns: repeat(2,1fr);/**/
         gap: .5rem;
     }
+    /*Estilo para los divs de elementos dentro de language-info*/
+    .language-element{
+        background-color: #fff;
+        background: linear-gradient(#c0dbf7,#fff,#c0dbf7);/**/
+        border-radius: 4px;
+        padding: .5rem;
+        /*box-shadow: 0 0 14px 0 rgba(0, 0, 0, 0.15);/**/
+    }
+    /*Estilo para el div que contiene el nombre del lenguaje y su nivel*/
+    .language-name{
+        display: flex;
+        justify-content: space-between; /*Separo el strong y span a las esquinas del div*/
+        align-items: flex-end; /*Envio los elementos al fondo del div, es decir al borde inferior del div que los contiene */
+    }
+    /*
     .language-box{
         width: 100%;
         background: linear-gradient(to right,#c0dbf7,#88bef1);
@@ -751,6 +768,7 @@ clase dropdown_arrow se le agregar un transform para rotar la flecha 180°*/
     .language-box p{
         margin-top: .5rem;
     }
+    */
 
 /*||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||*/
 /*                  DISEÑO RESPONSIVE-SECCION RESUME                */
@@ -765,8 +783,12 @@ clase dropdown_arrow se le agregar un transform para rotar la flecha 180°*/
         grid-template-columns: 1fr; /*cada columna ocupara 1fr*/
         gap: 1rem; /*Separacion entre columnas y filas de 1 rem*/
     }
+    
+}
+@media screen and (max-width: 768px){
     .language-info{
-        /*grid-template-columns: 1fr;/**/
+        grid-template-columns: 1fr;
+        grid-gap: 1rem;
     }
 }
 /* #endregion*/
