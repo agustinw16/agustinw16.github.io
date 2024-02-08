@@ -681,8 +681,8 @@ clase dropdown_arrow se le agregar un transform para rotar la flecha 180°*/
     .education-list li{
         display: flex;/*Hago flex cada fila asi el contenido se posicione a la par*/
         gap: 1rem; /*Espaciado entre los elementos del li*/
-        margin-bottom: 1rem; /*Espacio inferior entre cada lista*/
-        background: url(/assets/fondo.webp),linear-gradient(#c0dbf7,#fff,#c0dbf7);
+        margin-bottom: 1rem; /*Espacio inferior entre cada lista*/ 
+        background: url(/assets/fondo.webp),linear-gradient(#c0dbf7,#fff,#c0dbf7);/**/
         border-radius: 4px;
         padding: .5rem; /*Espaciado entre los bordes de la lista y su contenido*/
     }
@@ -756,7 +756,6 @@ clase dropdown_arrow se le agregar un transform para rotar la flecha 180°*/
     .language-name{
         display: flex;
         justify-content: space-between; /*Separo el strong y span a las esquinas del div*/
-        align-items: flex-end; /*Envio los elementos al fondo del div, es decir al borde inferior del div que los contiene */
     }
     /*
     .language-box{
@@ -790,5 +789,112 @@ clase dropdown_arrow se le agregar un transform para rotar la flecha 180°*/
         grid-template-columns: 1fr;
         grid-gap: 1rem;
     }
+}
+/* #endregion*/
+
+/*------------------------------------------------------------------*/
+/*                         SECCION PORTFOLIO                        */
+/*------------------------------------------------------------------*/
+/* #region PORTFOLIO STYLE*/
+
+/*Estilo para el div principal de la seccion portafolio*/
+.portfolio-inner-div{
+    display: grid; /*Divido el layout del div en 4 secciones de las siguiente forma*/
+    grid-template-areas: "title title title" 
+                         "leftside body rightside " ; /* tamaño: fila/columnas */
+    grid-template-columns: auto 1fr auto;
+    grid-template-rows: auto 1fr;
+    gap: 1rem; /*Separacion entre columnas y filas de 1 rem*/
+}
+/*Estilo para el titulo de cada proyecto*/
+.projects-title{
+    grid-area: title;
+    letter-spacing: 15px;
+    text-align: center;
+    font-weight: 900;
+    font-size: 32px;
+    animation: 5s alternate expand infinite; /*alternate para revertir el efecto cuando finalice*/
+}
+@keyframes expand{
+    0%{
+        letter-spacing: 10px;
+    }
+    100%{
+        letter-spacing: 5px;
+    }
+}
+/*Estilo del side izquierdo para cambiar de proyecto*/
+.left-side{
+    grid-area: leftside;
+}
+    /*Estilo del icono del side*/
+    .left-side img{
+        opacity: .2;
+        height: 40px;
+        width: 40px;
+        transform: rotate(180deg);
+        transition: all ease-in .2s; /*La transicion se aplicara a opacity y scale*/
+    }
+    /*Estilo del icono del side al hacer hover*/
+    .left-side img:hover{
+        opacity: 1;
+        scale: 1.1;
+    }
+
+/*Estilo del side derecho para cambiar de proyecto*/
+.right-side{
+    grid-area: rightside;
+}
+    /*Estilo del icono del side*/
+    .right-side img{
+        opacity: .2;
+        height: 40px;
+        width: 40px;
+        transition: all ease-in .2s; /*La transicion se aplicara a opacity y scale*/
+    }
+    /*Estilo del icono del side al hacer hover*/
+    .right-side img:hover{
+        opacity: 1;
+        scale: 1.1
+    }
+/*Estilo para el contenido de cada proyecto*/
+.projects-content{
+    grid-area: body;
+
+    display: grid; /*Divido el layout del div en 4 secciones de las siguiente forma*/
+    grid-template-areas: "big small1" 
+                         "big small2";
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr ;
+    gap: 1rem; /*Separacion entre columnas y filas de 1 rem*/
+}
+    .big-image{
+        grid-area: big;
+
+        background-color: #105094;
+    }
+    .small-image{
+        grid-area: small1;
+
+        background-color: #105094;
+    }
+    .small-description{
+        grid-area: small2;
+
+        background-color: #105094;
+    }
+
+
+/*||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||*/
+/*                DISEÑO RESPONSIVE-SECCION PORTFOLIO               */
+/*||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||*/
+
+/*Este estilo se aplicara cuando la resolucion de la pantalla sea 1200px o menos*/
+@media screen and (max-width: 1200px){
+
+    
+}
+@media screen and (max-width: 768px){
+
 }
 /* #endregion*/
