@@ -10,10 +10,15 @@ if (!menuButton.dataset.eventListenerAdded){
 
         if(imagenBoton.src.endsWith('menu.svg')){ // Si la cadena que contiene imagenBonton.src termina con 'menu.svg' entonces...
             imagenBoton.src='assets/close.svg'; //Cambia el valor del src al nombre del icono de close
+            document.body.setAttribute('style', 'overflow: hidden;');
         }else{ //Si la cadena que contiene imagenBonton.src termina con 'close.svg' entonces...
             imagenBoton.src='assets/menu.svg'; //Cambia el valor del src al nombre del icono de menu
+            document.body.removeAttribute('style');
         }
         
+        const articleContainer = document.querySelector('.article-container')
+        articleContainer.classList.toggle("no-interactive");
+
         const contenedor = document.getElementById('contenedor'); //guardo el elemento con el id contenedor
         contenedor.classList.toggle("showmenu");//al elemento contenedor le quito y agrego la clase "showmenu" con cada click
     });

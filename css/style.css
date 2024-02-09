@@ -8,6 +8,7 @@
 body{
     font-family: "Open Sans", sans-serif; /*El estilo agrega 8px de height adicionales a las fuentes (
         en este caso afecta a los iconos tambien)*/
+    
 }
 
 .container{
@@ -15,7 +16,7 @@ body{
     z-index: 1; /*Le indico un z-index de uno para colocar otros elementos por arriba de este*/
 }
 
-.article-container {
+.article-container{
     display: grid; /*De esta manera todo el article container se encojera junto con su contenido haciendose responsivo*/
     /*position: fixed; /*El area de sections se mostrara siempre en la pantalla por mas que se haga scroll (ocupara todo el espacio por mas que se agrande o disminuya la pantalla)*/
     /*FORMA 1 para mostrar menu y secciones*/
@@ -32,7 +33,9 @@ body{
     /*max-height: 100%; /* Establece un alto máximo para permitir el scroll */
     /*overflow-y: auto; /* Habilita el scroll cuando sea necesario */
 }
-
+.no-interactive{
+    pointer-events: none;
+}
 .article-section{
     background: #f1f7fe;
     /*min-height: 100%; /*De este modo cada section siempre ocupera el 100% de la pantalla del article-container*/
