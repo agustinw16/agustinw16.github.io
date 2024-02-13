@@ -33,6 +33,7 @@ body{
     /*max-height: 100%; /* Establece un alto máximo para permitir el scroll */
     /*overflow-y: auto; /* Habilita el scroll cuando sea necesario */
 }
+/*Estilo para evitar que el contenido no sea interactuable*/
 .no-interactive{
     pointer-events: none;
 }
@@ -829,6 +830,9 @@ clase dropdown_arrow se le agregar un transform para rotar la flecha 180°*/
 /*Estilo del side izquierdo para cambiar de proyecto*/
 .left-side{
     grid-area: leftside;
+
+    margin: auto;
+
 }
     /*Estilo del icono del side*/
     .left-side img{
@@ -847,9 +851,12 @@ clase dropdown_arrow se le agregar un transform para rotar la flecha 180°*/
 /*Estilo del side derecho para cambiar de proyecto*/
 .right-side{
     grid-area: rightside;
+    
+    margin: auto;
 }
     /*Estilo del icono del side*/
     .right-side img{
+        vertical-align: middle;
         opacity: .2;
         height: 40px;
         width: 40px;
@@ -867,26 +874,82 @@ clase dropdown_arrow se le agregar un transform para rotar la flecha 180°*/
     display: grid; /*Divido el layout del div en 4 secciones de las siguiente forma*/
     grid-template-areas: "big small1" 
                          "big small2";
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: auto 1fr;
     grid-template-rows: 1fr 1fr ;
     gap: 1rem; /*Separacion entre columnas y filas de 1 rem*/
 }
+    /*Estilo para el area de la imagen mas grande*/
     .big-image{
         grid-area: big;
 
-        background-color: #105094;
+        text-align: center; /*centro la imagen*/
+        padding: 0.5rem;
     }
-    .small-image{
+        /*Estilo para la imagen dentro del contenedor*/
+        .big-image img{
+            width: 384px;
+            height: 768px;
+        }
+    /*Estilo para el area de la descripcion*/
+    .small-description{
         grid-area: small1;
 
-        background-color: #105094;
+        padding: 0.5rem;
     }
-    .small-description{
+        /*Estilo para el parrafo de la descripcion*/
+        .project-description {
+            font-size: 24px;
+        }
+        /*Estilo para el texto inicial del parrafo de la descripcion*/
+        .project-description::before{
+            content: attr(data-text); /*Obtengo el texto del elemento html*/
+            font-size: xx-large;
+            font-weight: 900;
+            color: #1365b6;
+        }
+        /*Estilo para el div que contiene la informacion extra del proyecto*/
+        .project-info{
+            margin-top: 1rem;
+            display: flex;
+            gap: 1rem;
+        }
+        /*Estilo para el texto strong dentro de project info*/
+            .project-info p{
+                margin-bottom: .5rem;
+                font-size: large;
+                font-weight: 900;
+                color: #143b66;
+            }
+        /*Estilo para el div que contiene la informacion de las tecnologias del proyecto*/
+        .project-tech{
+            border-radius: 4px;
+            box-shadow: 0 0 24px 0 rgba(0, 0, 0, 0.12);
+            text-align: center;
+            flex: 1;
+        }
+        /*Estilo para el contenedor de los iconos de las tecnologias usadas*/
+        .container-tech{
+        }
+        /*Estilo para el div que contiene la informacion del codigo del proyecto*/
+        .project-code{
+            border-radius: 4px;
+            box-shadow: 0 0 24px 0 rgba(0, 0, 0, 0.12);
+            text-align: center;
+            flex: 1;
+        }
+        /*Estilo para las imagenes usadas dentro de small-description de los proyectos*/
+        .project-circular-img{
+            border-radius: 50%;
+            height: 40px;
+            width: 40px;
+        }
+
+    .small-image{
         grid-area: small2;
 
+        padding: 0.5rem;
         background-color: #105094;
     }
-
 
 /*||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||*/
 /*                DISEÑO RESPONSIVE-SECCION PORTFOLIO               */
@@ -894,7 +957,17 @@ clase dropdown_arrow se le agregar un transform para rotar la flecha 180°*/
 
 /*Este estilo se aplicara cuando la resolucion de la pantalla sea 1200px o menos*/
 @media screen and (max-width: 1200px){
-
+    .projects-content{
+        grid-area: body;
+    
+        display: grid; /*Divido el layout del div en 4 secciones de las siguiente forma*/
+        grid-template-areas: "big" 
+                             "small1"
+                             "small2";
+        grid-template-columns: 1fr;
+        grid-template-rows: 1fr;
+        gap: 1rem; /*Separacion entre columnas y filas de 1 rem*/
+    }
     
 }
 @media screen and (max-width: 768px){

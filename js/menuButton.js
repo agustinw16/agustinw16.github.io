@@ -10,14 +10,14 @@ if (!menuButton.dataset.eventListenerAdded){
 
         if(imagenBoton.src.endsWith('menu.svg')){ // Si la cadena que contiene imagenBonton.src termina con 'menu.svg' entonces...
             imagenBoton.src='assets/close.svg'; //Cambia el valor del src al nombre del icono de close
-            document.body.setAttribute('style', 'overflow: hidden;');
+            document.body.setAttribute('style', 'overflow: hidden;'); //le agrego al body el style overflow:hidden para evitar el scroll en movil al abrir menu
         }else{ //Si la cadena que contiene imagenBonton.src termina con 'close.svg' entonces...
             imagenBoton.src='assets/menu.svg'; //Cambia el valor del src al nombre del icono de menu
-            document.body.removeAttribute('style');
+            document.body.removeAttribute('style'); //le quito el style overflow:hidden para activar el scroll en movil nuevamente
         }
-        
-        const articleContainer = document.querySelector('.article-container')
-        articleContainer.classList.toggle("no-interactive");
+
+        const articleContainer = document.querySelector('.article-container') //obtengo el div principal que tiene las secciones
+        articleContainer.classList.toggle("no-interactive"); // le agrego a dicho div la clase no-interactive para evitar click en movil al abrir el menu
 
         const contenedor = document.getElementById('contenedor'); //guardo el elemento con el id contenedor
         contenedor.classList.toggle("showmenu");//al elemento contenedor le quito y agrego la clase "showmenu" con cada click
