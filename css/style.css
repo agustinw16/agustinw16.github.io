@@ -875,7 +875,7 @@ clase dropdown_arrow se le agregar un transform para rotar la flecha 180°*/
     grid-template-areas: "big small1" 
                          "big small2";
     grid-template-columns: auto 1fr;
-    grid-template-rows: 1fr 1fr ;
+    grid-template-rows: auto  ;
     gap: 1rem; /*Separacion entre columnas y filas de 1 rem*/
 }
     /*Estilo para el area de la imagen mas grande*/
@@ -883,27 +883,33 @@ clase dropdown_arrow se le agregar un transform para rotar la flecha 180°*/
         grid-area: big;
 
         text-align: center; /*centro la imagen*/
-        padding: 0.5rem;
     }
         /*Estilo para la imagen dentro del contenedor*/
         .big-image img{
-            width: 384px;
-            height: 768px;
+            vertical-align: middle;
+            width: 100%; /*Le digo a la imagen que tome el 100% del ancho que pueda asi se adapte a movil, pero le indico un ancho maximo para desktop*/
+            max-width: 384px;
+            max-height: 768px; /*Aparte le indico un alto maximo que hara que las demas filas tomen como referencia*/
         }
     /*Estilo para el area de la descripcion*/
     .small-description{
         grid-area: small1;
 
         padding: 0.5rem;
+        /*Las lineas flex de abajo son utilizadas para que el small-description no deje espacio en blanco cuando se va minimizando la pantalla*/
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
     }
         /*Estilo para el parrafo de la descripcion*/
         .project-description {
-            font-size: 24px;
+            text-align: center; /*Le doy una alineacion central al texto asi no este tirado al a izquierda*/
+            font-size: 1.2rem;
         }
         /*Estilo para el texto inicial del parrafo de la descripcion*/
         .project-description::before{
             content: attr(data-text); /*Obtengo el texto del elemento html*/
-            font-size: xx-large;
+            font-size: x-large;
             font-weight: 900;
             color: #1365b6;
         }
@@ -911,6 +917,7 @@ clase dropdown_arrow se le agregar un transform para rotar la flecha 180°*/
         .project-info{
             margin-top: 1rem;
             display: flex;
+            flex-wrap: wrap; /*Utilizo wrap de modo que cuando la pantalla se chica y se cumpla un media query, cambie el widht de project-tech/code */
             gap: 1rem;
         }
         /*Estilo para el texto strong dentro de project info*/
@@ -943,13 +950,20 @@ clase dropdown_arrow se le agregar un transform para rotar la flecha 180°*/
             height: 40px;
             width: 40px;
         }
-
+    /*Estilo para el area de la imagen mas pequeña*/
     .small-image{
         grid-area: small2;
-
         padding: 0.5rem;
-        background-color: #105094;
     }
+        /*Estilo para la imagen pequeña dentro del contenedor*/
+        .small-image img{
+            /*La imagen ocupara el 100% de alto y ancho del contenedor, con cover se escalara y con position se enfocara cierta parte de la imagen*/
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: top left;
+            border-radius: 4px;
+        }
 
 /*||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||*/
 /*                DISEÑO RESPONSIVE-SECCION PORTFOLIO               */
@@ -959,7 +973,7 @@ clase dropdown_arrow se le agregar un transform para rotar la flecha 180°*/
 @media screen and (max-width: 1200px){
     .projects-content{
         grid-area: body;
-    
+        
         display: grid; /*Divido el layout del div en 4 secciones de las siguiente forma*/
         grid-template-areas: "big" 
                              "small1"
@@ -971,6 +985,8 @@ clase dropdown_arrow se le agregar un transform para rotar la flecha 180°*/
     
 }
 @media screen and (max-width: 768px){
-
+    .project-tech, .project-code{
+        min-width: 100%; /*Las tarjetas de tech/code ocuparan un 100% de width por lo que se posicionaran una debajo de otra*/
+    }
 }
 /* #endregion*/
