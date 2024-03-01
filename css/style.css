@@ -503,6 +503,16 @@ clase dropdown_arrow se le agregar un transform para rotar la flecha 180°*/
 .gallery .box{
     width: 100%;
     height: 500px; /*Alto de cada contenedor de imagen*/
+    /*position: relative;*/
+    /*background: var(--img); /*Defino la variable "img" como background y le asigno un url de cada imagen a traves del index.html*/
+    /*background-position: center; /*Posicion del background*/
+    /*background-size: cover;/*Con cover la imagen se escalará según sea necesario para cubrir el contenedor (puede dejar contenido fuera)*/
+    /*background-size: 420px 560px;
+    background-repeat: no-repeat;*/
+    /*transition: 0.5s ease; /*Transicion para las propiedades(en este caso el filtro grayscale y brightness al hacer hover)*/
+    /*display: flex;
+    justify-content: center;
+    align-items: center;*/
 }
 /*Estilo para las imagenes dentro de los divs de la galeria*/
 .gallery .box img{
@@ -798,193 +808,149 @@ clase dropdown_arrow se le agregar un transform para rotar la flecha 180°*/
 /*                         SECCION PORTFOLIO                        */
 /*------------------------------------------------------------------*/
 /* #region PORTFOLIO STYLE*/
-
-/*Estilo para el div principal de la seccion portafolio*/
-.portfolio-inner-div{
-    display: grid; /*Divido el layout del div en 4 secciones de las siguiente forma*/
-    grid-template-areas: "title title title" 
-                         "leftside body rightside " ; /* tamaño: fila/columnas */
-    grid-template-columns: auto 1fr auto;
-    grid-template-rows: auto 1fr;
-    gap: 1rem; /*Separacion entre columnas y filas de 1 rem*/
+/*Estilo para el div que sera el contenedor de todas las tarjetas*/
+.slide-container{
+    display: grid; /*Si no pongo grid, el style del swiper-bundle.min hace que toda la pagina se oculte el cambiar la resolucion*/
+    /*max-width: 1120px; /*Le indico un ancho maximo, no podra crecer mas que esto*/
+    width: 100%; /*Al indicarle que sea 100% el ancho, este se adaptara al tamaño disponible ocupando el 100%*/
+    background-color: rgb(255, 255, 255);
+    padding: 0px 0px 40px 0px; /*Le doy un espaciado bajo de 40px que tendran las tarjetas respecto a este div*/
 }
-/*Estilo para el titulo de cada proyecto*/
-.projects-title{
-    grid-area: title;
-    letter-spacing: 15px;
-    text-align: center;
-    font-weight: 900;
-    font-size: 32px;
-    animation: 5s alternate expand infinite; /*alternate para revertir el efecto cuando finalice*/
+/*Estilo para div slide del contenido*/
+.slide-content{
+    overflow: hidden; /*El contenido que sobresalga del slide se ocultara*/
+    padding-top: 10px; /*Dejo un espacio de 10px entre el contenido y el borde superior del slide-content para el hover de card-slide*/
+    /*margin: 0 40px; /*Dejo un margen a la izquierda y derecha de 40px*/
 }
-@keyframes expand{
-    0%{
-        letter-spacing: 10px;
-    }
-    100%{
-        letter-spacing: 5px;
-    }
+.swiper-wrapper{
+    justify-content: space-between;
 }
-/*Estilo del side izquierdo para cambiar de proyecto*/
-.left-side{
-    grid-area: leftside;
-
-    margin: auto;
-
+/*Estilo para el div que contiene cada tarjeta*/
+.card-slide{
+    /*Al hacer flex cada tarjeta y hacer su direccion column sus elemenos se colocan uno debajo de otro (imagen-content y card-conten)
+    y de esta manera puedo hacer que card-ocupe el 100% del alto sin desborde, entonces puedo espaciar los elementos de card-content */
+    display: flex;/**/
+    flex-direction: column;
+    gap: 10px; /*Espacio entre image-content y card-content*/
+    border-radius: 25px;
+    background-color: #040b14;
+    transition: transform .5s ease;
+    padding: 10px 14px; /*Dejo un espacio de 10px arriba y abajo y 14px a los lados*/
 }
-    /*Estilo del icono del side*/
-    .left-side img{
-        opacity: .2;
-        height: 40px;
-        width: 40px;
-        transform: rotate(180deg);
-        transition: all ease-in .2s; /*La transicion se aplicara a opacity y scale*/
-    }
-    /*Estilo del icono del side al hacer hover*/
-    .left-side img:hover{
-        opacity: 1;
-        scale: 1.1;
-    }
-
-/*Estilo del side derecho para cambiar de proyecto*/
-.right-side{
-    grid-area: rightside;
-    
-    margin: auto;
+/*Estilo al pasar el mouse sobre la tarjeta*/
+.card-slide:hover {
+    transform: translateY(-10px); /*La tarjeta se movera 10px hacia arriba*/
 }
-    /*Estilo del icono del side*/
-    .right-side img{
-        vertical-align: middle;
-        opacity: .2;
-        height: 40px;
-        width: 40px;
-        transition: all ease-in .2s; /*La transicion se aplicara a opacity y scale*/
-    }
-    /*Estilo del icono del side al hacer hover*/
-    .right-side img:hover{
-        opacity: 1;
-        scale: 1.1
-    }
-/*Estilo para el contenido de cada proyecto*/
-.projects-content{
-    grid-area: body;
-
-    display: grid; /*Divido el layout del div en 4 secciones de las siguiente forma*/
-    grid-template-areas: "big small1" 
-                         "big small2";
-    grid-template-columns: auto 1fr;
-    grid-template-rows: auto  ;
-    gap: 1rem; /*Separacion entre columnas y filas de 1 rem*/
+/*Estilo para el contenedor que tiene las imagenes de la tarjeta*/
+.image-content{
+    overflow: hidden;
+    position: relative;/**/
+    /*padding: 10px 14px; /*Dejo un espacio de 10px arriba y abajo y 14px a los lados*/
+    /*A cada contenedor de imagenes le doy un alto fijo y un minimo fijo. asi el alto de la imagen no se altere por mas que sea flex la card-slide*/
+    height: 400px; 
+    min-height: 380px;
+    width: 100%;
+    border-radius: 25px;
 }
-    /*Estilo para el area de la imagen mas grande*/
-    .big-image{
-        grid-area: big;
 
-        text-align: center; /*centro la imagen*/
-    }
-        /*Estilo para la imagen dentro del contenedor*/
-        .big-image img{
-            vertical-align: middle;
-            width: 100%; /*Le digo a la imagen que tome el 100% del ancho que pueda asi se adapte a movil, pero le indico un ancho maximo para desktop*/
-            max-width: 384px;
-            max-height: 768px; /*Aparte le indico un alto maximo que hara que las demas filas tomen como referencia*/
-        }
-    /*Estilo para el area de la descripcion*/
-    .small-description{
-        grid-area: small1;
-
-        padding: 0.5rem;
-        /*Las lineas flex de abajo son utilizadas para que el small-description no deje espacio en blanco cuando se va minimizando la pantalla*/
-        display: flex;
-        flex-direction: column;
-        justify-content: space-around;
-    }
-        /*Estilo para el parrafo de la descripcion*/
-        .project-description {
-            text-align: center; /*Le doy una alineacion central al texto asi no este tirado al a izquierda*/
-            font-size: 1.2rem;
-        }
-        /*Estilo para el texto inicial del parrafo de la descripcion*/
-        .project-description::before{
-            content: attr(data-text); /*Obtengo el texto del elemento html*/
-            font-size: x-large;
-            font-weight: 900;
-            color: #1365b6;
-        }
-        /*Estilo para el div que contiene la informacion extra del proyecto*/
-        .project-info{
-            margin-top: 1rem;
-            display: flex;
-            flex-wrap: wrap; /*Utilizo wrap de modo que cuando la pantalla se chica y se cumpla un media query, cambie el widht de project-tech/code */
-            gap: 1rem;
-        }
-        /*Estilo para el texto strong dentro de project info*/
-            .project-info p{
-                margin-bottom: .5rem;
-                font-size: large;
-                font-weight: 900;
-                color: #143b66;
-            }
-        /*Estilo para el div que contiene la informacion de las tecnologias del proyecto*/
-        .project-tech{
-            border-radius: 4px;
-            box-shadow: 0 0 24px 0 rgba(0, 0, 0, 0.12);
-            text-align: center;
-            flex: 1;
-        }
-        /*Estilo para el contenedor de los iconos de las tecnologias usadas*/
-        .container-tech{
-        }
-        /*Estilo para el div que contiene la informacion del codigo del proyecto*/
-        .project-code{
-            border-radius: 4px;
-            box-shadow: 0 0 24px 0 rgba(0, 0, 0, 0.12);
-            text-align: center;
-            flex: 1;
-        }
-        /*Estilo para las imagenes usadas dentro de small-description de los proyectos*/
-        .project-circular-img{
-            border-radius: 50%;
-            height: 40px;
-            width: 40px;
-        }
-    /*Estilo para el area de la imagen mas pequeña*/
-    .small-image{
-        grid-area: small2;
-        padding: 0.5rem;
-    }
-        /*Estilo para la imagen pequeña dentro del contenedor*/
-        .small-image img{
-            /*La imagen ocupara el 100% de alto y ancho del contenedor, con cover se escalara y con position se enfocara cierta parte de la imagen*/
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            object-position: top left;
-            border-radius: 4px;
-        }
-
-/*||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||*/
-/*                DISEÑO RESPONSIVE-SECCION PORTFOLIO               */
-/*||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||*/
-
-/*Este estilo se aplicara cuando la resolucion de la pantalla sea 1200px o menos*/
-@media screen and (max-width: 1200px){
-    .projects-content{
-        grid-area: body;
-        
-        display: grid; /*Divido el layout del div en 4 secciones de las siguiente forma*/
-        grid-template-areas: "big" 
-                             "small1"
-                             "small2";
-        grid-template-columns: 1fr;
-        grid-template-rows: 1fr;
-        gap: 1rem; /*Separacion entre columnas y filas de 1 rem*/
-    }
-    
+/*Estilo para las imagenes de la tarjeta*/
+.card-img{
+    transition: transform .5s;
+    /*Al indicarle a la imagen un height y width 100% las imagenes ocuparan el 100% del contenedor osea 150px*/
+    height: 100%;
+    width: 100%;
+    object-fit: cover; /*Con cover le indico a la imagen que se adapte en resolucion al tamaño de su contenedor (150px)*/
+    object-position: top left;
+    border-radius: 25px;
 }
-@media screen and (max-width: 768px){
-    .project-tech, .project-code{
-        min-width: 100%; /*Las tarjetas de tech/code ocuparan un 100% de width por lo que se posicionaran una debajo de otra*/
-    }
+/*Estilo para el contenedor de la informacion de la tarjeta*/
+.card-content{
+    /*Al hacer flex los contenidos los hago responsivo*/
+    display: flex;
+    flex-direction: column; /*Al display flex le doy direccion column, asi cada elemento se coloque uno debajo del otro*/
+    align-items: center; /*Centro los elementos y ocupan solo su tamaño*/
+    /*max-height: 350px;/**/
+    height: 100%; /*Le indico al contenido que ocupe el 100% disponible, se ajustara automaticamente*/
+    justify-content: space-between; /*Hago que el contenido se separe de la misma forma, asi cada tarjeta tenga su contenido en el mismo lugar aunque la cantidad de informacion no sea la misma*/
+    /*padding: 10px 14px; /*Dejo un espacio de 10px arriba y abajo y 14px a los lados*/
 }
+/*Estilo para el nombre dentro de la tarjeta*/
+.name-project{
+    font-size: 18px;
+    font-weight: 500;
+    color: rgb(56, 189, 248);
+    margin-bottom: 5px;
+}
+/*Estilo para la descripcion de la tarjeta*/
+.description-project{
+    font-size: 14px;
+    color: rgb(56, 189, 248, .5);
+    text-align: center; /*Centro el texto*/
+}
+/*Estilo para el contenedor de los botones*/
+.card-buttons{
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+}
+/*Estilo para el boton de las tarjetas y etiquetas de tecnologia*/
+.button{
+    /*Le agrego un flex para centrar los elementos dentros (imagen y nombre)*/
+    display: flex;
+    align-items: center;
+    gap: 5px; /*Espacido entre los elementos dentro del boton*/
+
+    width: 120px; /*Les defino un ancho igual a ambos botones*/
+    font-size: 16px;
+    text-decoration: none; /*Le saco la decoracion del texto en caso de que el boton sea un <a>*/
+    color: rgb(56, 189, 248);
+    padding: 8px 16px; /*Espacio interior de 8px arriba y abajo y 16 a los lados*/
+    background-color: rgb(12, 74, 110, 1);
+    border-radius: 100px;
+    margin: 14px; /*Espacio entre el boton y el resto del contenido*/
+    cursor: pointer;
+    transition: all 0.5s ease;
+}
+/*Estilo para el boton cuando se posicione el mouse sobre el*/
+.button:hover{
+    background: #075785;
+}
+/*Estilo para las imagenes que iran dentro de los botones*/
+.button-img{
+    /*Con filter puedo darle color a un svg desde css*/
+    filter: invert(58%) sepia(52%) saturate(914%) hue-rotate(171deg) brightness(105%) contrast(94%);
+    height: 30px;
+    width: 30px;
+}
+/*Estilo para el contenedor de las tecnologias del proyecto*/
+.tech{
+    display: flex;
+    gap: 5px;
+    justify-content: center; /*centro los elementos*/
+    flex-wrap: wrap; /*A medida que la pantalla va disminuyendo los label de tech se colocan en la fila de abajo*/
+    margin-top: 14px;
+    width: 100%; /*El ancho sera igual al contenido*/
+    overflow: hidden; /*Se oculta todo contenido que desborde*/
+}
+
+/*Estilo para las etiquetas de tecnologia*/
+.label-tech{
+    /*Le agrego un flex para centrar los elementos dentros (imagen y nombre)*/
+    display: flex;
+    align-items: center;
+    gap: 5px; /*Espacido entre los elementos dentro del boton*/
+
+    font-size: 14px;
+    color: rgb(56, 189, 248);
+    padding: 4px 8px; /*Espacio interior de 8px arriba y abajo y 16 a los lados*/
+    background-color: rgb(12, 74, 110, .5);
+    border-radius: 100px;
+}
+/*Estilo para las imagenes que iran dentro de las etiquetas*/
+.label-img{
+    height: 20px;
+    width: 20px;
+    border-radius: 50%; /*Le doy forma circular a los iconos*/
+}
+
 /* #endregion*/

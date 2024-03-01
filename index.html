@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--Swiper CSS (debe estar antes del css propio para que no lo opaque)-->
+    <link rel="stylesheet" href="css/swiper-bundle.min.css">-->
     <link rel='stylesheet' type='text/css' href='css/style.css'>
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
 
@@ -54,19 +56,8 @@
                             <img src="assets/down.svg" class="dropdown_arrow"><!--Flecha para abrir sublista-->
                             </a>
                             <!--El ul siguiente sera un elemento hermano adyacente de <a>-->
-                            <ul class="list_show">
-                                <li class="list_inside">
-                                    <a href="#" class="link_inside">Project 1</a>
-                                </li>
-                                <li class="list_inside">
-                                    <a href="#" class="link_inside">Project 2</a>
-                                </li>
-                                <li class="list_inside">
-                                    <a href="#" class="link_inside">Project 3</a>
-                                </li>
-                                <li class="list_inside">
-                                    <a href="#" class="link_inside">Project 4</a>
-                                </li>
+                            <ul id="sublist-project" class="list_show">
+                                <!--La lista se rellena atraves del JavaScript "projectManager"-->
                             </ul>
 
                         </li>
@@ -86,9 +77,9 @@
                     <div class="title-section-div"><h1>About</h1></div>
                     <div class="about-inner-div">
                         <div class="gallery">
-                            <div class="box one"><img src="assets/jav1.webp"></div>
-                            <div class="box two"><img src="assets/jav2.webp"></div>
-                            <div class="box three"><img src="assets/jav3.webp"></div>
+                            <div class="box one" style="--img:url(../assets/jav1.webp)"><img src="assets/jav1.webp"></div>
+                            <div class="box two" style="--img:url(../assets/jav2.webp)"><img src="assets/jav2.webp"></div>
+                            <div class="box three" style="--img:url(../assets/jav3.webp)"><img src="assets/jav3.webp"></div>
                         </div>
                         <div class="information-about">
                             <div><strong>Name:</strong><span>Juan Agustin Veliz</span></div>
@@ -257,33 +248,14 @@
             <section id="portfolio" class="article-section">
                 <div class="section-div">
                     <div class="title-section-div"><h1>Portfolio</h1></div>
-                    <div class="portfolio-inner-div">
-                        <div class="projects-title">DIGITAL PORTFOLIO</div>
-                        <div class="left-side"><img src="assets/side.svg"></div>
-                        <div class="projects-content">
-                            <div class="big-image"><img src="assets/movilPortfolio.webp"></div>
-                            <div class="small-description">
-                                <p class="project-description" data-text="THIS"> project shows, through a modern, intuitive, and responsive design, information about me, skills, education 
-                                    and the most notable projects I have done, in the same way that a CV or resume does. The technologies used for
-                                    this project were HTML, CSS and JavaScript, with various resources used as API consumption for mail sending.</p>
-                                <div class="project-info">
-                                    <div class="project-tech">
-                                        <p>TECH</p>
-                                        <div class="container-tech">
-                                            <img src="assets/html-icon.svg" class="project-circular-img">
-                                            <img src="assets/css-icon.svg" class="project-circular-img">
-                                            <img src="assets/js-icon.svg" class="project-circular-img">
-                                        </div>
-                                    </div>                                
-                                    <div class="project-code">
-                                        <p>CODE</p>
-                                        <a href="https://github.com/agustinw16/agustinw16.github.io" target="_blank"><img src="assets/github-icon.svg" class="project-circular-img"></a>
-                                    </div>
-                                </div>
+                    <div class="slide-container swiper">
+                        <!--Coloco slide-content para separar mejor swiper-pagination-->
+                        <div class="slide-content">
+                            <div id="list-project" class="card-wrapper swiper-wrapper">
+                                <!--El contenido se rellena atraves del JavaScript "projectManager"-->
                             </div>
-                            <div class="small-image"><img src="assets/desktopPortfolio.webp"></div>
                         </div>
-                        <div class="right-side"><img src="assets/side.svg"></div>
+                        <div class="swiper-pagination"></div>
                     </div>
                 </div>
             </section>
@@ -325,10 +297,13 @@
         </section>
 
     </div>
+
+    <script src="js/swiper-bundle.min.js"></script>
+    <script src="js/swiperInit.js"></script>
+    <script src="js/projectManager.js"></script>
     <script src="js/sublist.js"></script>
     <script src="js/menuButton.js"></script>
     <script src="js/sendMail.js"></script>
-    <script src="js/galleryTouch.js"></script>
     <script src="js/intersectionObserver.js"></script>
     <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
 
