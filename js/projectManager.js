@@ -5,7 +5,7 @@ let projects = [
         'description': `This project shows, through a modern, intuitive, and responsive design, information about me, skills, education 
                         and the most notable projects I have done, in the same way that a CV or resume does. The technologies used for
                         this project were HTML, CSS and JavaScript, with various resources used as API consumption for mail sending`,
-        'tech': ['js-icon','html-icon','css-icon'],
+        'tech': ['JavaScript','HTML','CSS'],
         'galery': [],
         'github': 'https://github.com/agustinw16/agustinw16.github.io'
     },
@@ -13,7 +13,7 @@ let projects = [
         'name': 'App Notes',
         'description': `My Notes is a CRUD project of a web application for notes, which allows the user to: create, delete, edit, and archive notes. 
                         The backend was built using Node.js and Express, and MySQL is used as the database for storing the notes`,
-        'tech': ['js-icon','html-icon','css-icon','node-icon','express-icon','mysql-icon'],
+        'tech': ['JavaScript','HTML','CSS','Node','Express','MySQL'],
         'galery': [],
         'github': ''
     }
@@ -39,11 +39,12 @@ const createProjectTech = (techs) =>{  // Recibo un objeto del tipo 'project'
         techsHTML += 
         `
         <div class="label-tech">
-            <img src="assets/${tech}.svg" class="label-img">JavaScript
+            <img src="assets/${tech.toLowerCase()}-icon.svg" class="label-img">${tech}
         </div>
         `
     }
     return techsHTML;
+    //Nota: por precaucion en la linea de codigo que busca el svg con el nombre de la tecnologia, convierto todas las letras a minuscula 
 }
 
 //* Funcion para pasar un objeto del tipo 'project' a un formato para visualizarlo en html
