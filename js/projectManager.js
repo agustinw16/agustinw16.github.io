@@ -7,13 +7,12 @@
 let projects = [
     {
         'name': 'Portfolio',
-        'type': 1,
+        'type': 0,
         'description': `This project shows, through a modern, intuitive, and responsive design, information about me, skills, education 
                         and the most notable projects I have done, in the same way that a CV or resume does. The technologies used for
                         this project were HTML, CSS and JavaScript, with various resources used as API consumption for mail sending`,
         'tech': ['JavaScript','HTML','CSS'],
         'deploy': 'https://agustinw16.github.io/',
-        'galery': ['1','2'],
         'github': 'https://github.com/agustinw16/agustinw16.github.io'
     },
     {
