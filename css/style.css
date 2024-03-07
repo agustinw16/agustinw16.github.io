@@ -808,6 +808,7 @@ clase dropdown_arrow se le agregar un transform para rotar la flecha 180°*/
 /*                         SECCION PORTFOLIO                        */
 /*------------------------------------------------------------------*/
 /* #region PORTFOLIO STYLE*/
+
 /*Estilo para el div que sera el contenedor de todas las tarjetas*/
 .slide-container{
     display: grid; /*Si no pongo grid, el style del swiper-bundle.min hace que toda la pagina se oculte el cambiar la resolucion*/
@@ -837,10 +838,7 @@ clase dropdown_arrow se le agregar un transform para rotar la flecha 180°*/
     transition: transform .5s ease;
     padding: 10px 14px; /*Dejo un espacio de 10px arriba y abajo y 14px a los lados*/
 }
-/*Estilo al pasar el mouse sobre la tarjeta*/
-.card-slide:hover {
-    transform: translateY(-10px); /*La tarjeta se movera 10px hacia arriba*/
-}
+
 /*Estilo para el contenedor que tiene las imagenes de la tarjeta*/
 .image-content{
     overflow: hidden;
@@ -951,6 +949,51 @@ clase dropdown_arrow se le agregar un transform para rotar la flecha 180°*/
     height: 20px;
     width: 20px;
     border-radius: 50%; /*Le doy forma circular a los iconos*/
+}
+
+/**VENTANA MODAL DE GALERIA**/
+/*Estilo para la ventana modal de la galeria*/
+.modalContenidoGalery{
+    /*Valores para el tamaño y posicion de la ventana modal*/
+    margin: auto;
+    width: 90%;
+    max-width: 1024px;
+    max-height: 90%;
+    background-color: rgb(255, 255, 255);
+    border-radius: 25px;
+    padding: 10px 14px;
+    /*Valores para la disposicion de los elementos de la ventana (titulo y botones)*/
+    display: grid;
+    place-items: center;
+    grid-auto-columns: 100%;
+    grid-template-rows: repeat(2,auto);
+}
+/*Estilo para el contenedor del contenedor de las imagenes de la galeria en la ventana modal*/
+.slide-galery{
+    overflow: hidden; /*El contenido que sobresalga del slide se ocultara*/
+}
+/*Estilo para el contenedor que tiene las imagenes de la galeria*/
+.galery-content{
+    overflow: hidden;
+    position: relative;
+    height: 100%;
+    width: 100%;
+    border-radius: 25px;
+}
+/*Estilo para las imagenes de la galeria*/
+.galery-img{
+    /*Al indicarle a la imagen un height y width 100% las imagenes ocuparan el 100% del contenedor osea 150px*/
+    height: 100%;
+    width: 100%;
+    object-fit: contain; /*Con contain le indico a la imagen que se adapte al contenedor para mostarse completa*/
+    border-radius: 25px;
+}
+
+@media screen and (min-width: 1024px){
+    /*Estilo al pasar el mouse sobre la tarjeta solo en desktop*/
+    .card-slide:hover {
+        transform: translateY(-10px); /*La tarjeta se movera 10px hacia arriba*/
+    }
 }
 
 /* #endregion*/
