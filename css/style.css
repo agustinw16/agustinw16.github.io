@@ -41,8 +41,8 @@ body{
     background: #f1f7fe;
     /*min-height: 100%; /*De este modo cada section siempre ocupera el 100% de la pantalla del article-container*/
     /*height: 100%; /* Combinado con la propiedad min-heigh cada section ira creciendo conforme al contenido */
-    margin-bottom: 1px; /* Espacio entre secciones */
-    padding: 10px; /*Espacio entre la section y el article-container*/
+    /*margin-bottom: 1px; /* Espacio entre secciones */
+    /*padding: 10px; /*Espacio entre la section y el article-container*/
 }
 /*------------------------------------------------------------------*/
 /*                          BOTON DE MENU                           */
@@ -318,7 +318,43 @@ clase dropdown_arrow se le agregar un transform para rotar la flecha 180°*/
     padding-bottom: 1rem;
     margin-bottom: 1rem;
 }
-
+/*------------------------------------------------------------------*/
+/*                              SECCION HOME                        */
+/*------------------------------------------------------------------*/
+/*#region HOME STYLE*/
+.parallax{
+    overflow: hidden;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+.parallax img{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    object-fit: cover;
+}
+#welcome{
+    text-align: center;
+    position: absolute;
+    font-size: 5em;
+    color: #333;
+    text-shadow: 2px 2px 4pc rgba(0, 0, 0, .2);
+}
+#welcome span{
+    color: #105094;
+}
+@media screen and (max-width: 768px){
+    #welcome{
+        font-size: 4em;
+    }
+}
+/*#endregion*/
 /*------------------------------------------------------------------*/
 /*                          SECCION DE CONTACTO                     */
 /*------------------------------------------------------------------*/
