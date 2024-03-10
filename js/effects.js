@@ -7,6 +7,6 @@ let moon = document.getElementById('moon');
 window.addEventListener('scroll', () =>{
     let value = window.scrollY; // En "value" almaceno la cantidad de desplazamiento vertical de la ventana del navegador en píxeles.
 
-    text.style.marginTop = value * 2.5 + 'px' // Al titulo le defino un nuevo margen top multiplicando value*2.5 
-    moon.style.top = value * -1.5 + 'px' 
+    text.style.transform = `translateY(${value + 'px'})` // Al titulo le defino un nuevo margen top multiplicando value*2.5 
+    moon.style.transform = `translateY(${-value + 'px'})` 
 });
