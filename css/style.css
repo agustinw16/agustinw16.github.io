@@ -341,18 +341,14 @@ clase dropdown_arrow se le agregar un transform para rotar la flecha 180°*/
     object-fit: cover;
 }
 
-#sky{
-    z-index: 1;
-}
+
 #moon{
-    z-index: 2;
     left: unset!important; 
     /*Al aplicar left:unset elimina cualquier ajuste anterior de la propiedad left y permite que el navegador establezca el valor 
     predeterminado según su algoritmo de diseño. De esta manera funciona bien en movil, sino tiene errores visuales sin left:unset, solo se
     aplica left:unset a los elementos a los cuales se moveran en el efecto parallax*/
 }
 #welcome{
-    z-index: 3;
     left: unset!important; /*Explicacion arriba del uso de este estilo*/
     text-align: center;
     position: absolute;
@@ -360,11 +356,9 @@ clase dropdown_arrow se le agregar un transform para rotar la flecha 180°*/
     color: #333;
 }
     #welcome span{
-        color: #075785;
+        color: #105094;
     }
-#tree{
-    z-index: 4;
-}
+
 
 @media screen and (max-width: 768px){
     #welcome{
