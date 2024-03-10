@@ -341,7 +341,6 @@ clase dropdown_arrow se le agregar un transform para rotar la flecha 180°*/
     object-fit: cover;
 }
 
-
 #moon{
     left: unset!important; 
     /*Al aplicar left:unset elimina cualquier ajuste anterior de la propiedad left y permite que el navegador establezca el valor 
@@ -358,7 +357,6 @@ clase dropdown_arrow se le agregar un transform para rotar la flecha 180°*/
     #welcome span{
         color: #105094;
     }
-
 
 @media screen and (max-width: 768px){
     #welcome{
