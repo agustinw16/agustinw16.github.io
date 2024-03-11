@@ -357,10 +357,16 @@ clase dropdown_arrow se le agregar un transform para rotar la flecha 180°*/
     #welcome span{
         color: #105094;
     }
-
-@media screen and (max-width: 768px){
+/*Tamaño de la fuente para tablets*/
+@media screen and (max-width: 1200px){
     #welcome{
         font-size: 4em;
+    }
+}
+/*Tamaño de la fuente para moviles*/
+@media screen and (max-width: 480px){
+    #welcome{
+        font-size: 2.5em;
     }
 }
 /*#endregion*/
