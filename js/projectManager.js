@@ -120,7 +120,7 @@ const createProjectsHTML = (project) =>{  // Recibo un objeto del tipo 'project'
     `
     <div id="${project.name}" class="card-slide swiper-slide">
         <div class="image-content">
-            <img src="assets/projects/${project.name}/${project.name}.jpg" alt="" class="card-img">
+            <img src="assets/projects/${project.name}/${project.name}.jpg" loading="lazy" class="card-img">
         </div>
 
         <div class="card-content">
