@@ -330,6 +330,10 @@ clase dropdown_arrow se le agregar un transform para rotar la flecha 180°*/
     align-items: center;
     width: 100%;
     height: 100vh;
+    
+    background: url(/assets/sky.png);
+    background-size: cover;
+    background-attachment: fixed;
 }
 .parallax img{
     position: absolute;
