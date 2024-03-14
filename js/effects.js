@@ -1,3 +1,13 @@
+//*Prealoader
+window.onload = function(){ //Funcion que se ejecutara cuando la ventana se cargue completamente(con imagenes y estilos)
+    //alert('Pagina cargada')
+    let body = document.body // Obtengo el body del documento
+    let loader = document.getElementById('loader') //Obtengo el div que contiene el loader
+    loader.remove(); // Elimino el div con el loader del documento
+    body.classList.remove('preloader') // Le quito la clase preloader al body para que se active el scroll
+
+}
+
 //*Parallax Effect
 //Obtengo algunos elemento del section parallax y los guardo en una variable
 let text = document.getElementById('welcome');

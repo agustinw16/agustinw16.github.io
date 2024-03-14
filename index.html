@@ -12,8 +12,13 @@
     <title>Agustin Veliz</title>
     <link rel="icon" href="assets/logoav.ico">
 </head>
-<body ontouchstart> <!--Con ontouchstart habilito los hover en safari iOS con los que no tiene compatibilidad-->
-
+<body ontouchstart class="preloader"> <!--Con ontouchstart habilito los hover en safari iOS con los que no tiene compatibilidad-->
+    <div class="loader" id="loader">
+        <div class="lds-default">
+            <div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div>
+        </div>
+        <h3>Loading</h3>
+    </div>
     <!-- ======= Button Menu ======= -->
     <div class="menu-button" id="menu-button">
         <a href="#" title="Menu">
