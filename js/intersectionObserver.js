@@ -3,7 +3,7 @@ si un elemento entro a la vista del usuario/pantalla y reaccionar ante ello*/
 
 //*Observador para section resume*//
 /* 1° se debe crear una instancia de IntersectionObserver, esta instancia recibe como parametros una funcion y objeto con opciones (puede estar vacio) */
-const opciones = {}
+const opciones = {threshold: 0.05} //Con threshold defino que la funcion se llame cuando el 5% del section este visible
 const observadorResume = new IntersectionObserver(comprobarVisibilidad,opciones)
 
 /* 2° obtengo el elemento que quiero verificar su visibilidad */
@@ -16,7 +16,8 @@ observadorResume.observe(resumeSection)
 clase "progress-bar" una nueva clase extra llamada "charge-bar" */
 
 const barrasProgreso = document.querySelectorAll('.progress-bar') //Obtengo todos los elementos con la clase "progress-bar"
-const educationCard = document.querySelector('.education-card')
+const educationCard = document.querySelector('.education-card') //Obtengo el elemento con la clase "education-card"
+educationCard.classList.add("fade") //Le agrego la clase "fade" de modo que educationCard tenga opacidad 0
 
 /* 4° defino la funcion que recibira IntersectionObserver 
 Esta funcion recibira como paramatro el array "entries" el cual es un array de objetos y cada objeto dentro de ese array tiene un serie de variables
@@ -35,7 +36,7 @@ function comprobarVisibilidad(entries) {
         barrasProgreso.forEach( barra => { //Recorro cada elemento de barra de progreso
             barra.classList.add("charge-bar") // A cada elemento barra de progreso le agrego la clase charge-bar
         })
-        educationCard.classList.add("fade-in-right")
+        educationCard.classList.add("fade-in") //Le agrego la clase "fade-in" de modo que educationCard transicione su opacidad a 1
    }
 }
 
@@ -46,9 +47,10 @@ function comprobarVisibilidad(entries) {
         threshold: 1.0  // Número o array de números entre 0.0 y 1.0 que indican el porcentaje de visibilidad que debe tener el elemento observado para que la funcion se ejecute
     }
 */
+
 //*Observador para section about*//
 
-const observadorAbout = new IntersectionObserver(comprobarVisibilidadAbout,{ threshold: 0.1 })
+const observadorAbout = new IntersectionObserver(comprobarVisibilidadAbout,{ threshold: 0.1 }) //Con threshold defino que la funcion se llame cuando el 10% del section este visible
 
 /* Obtengo el elemento que quiero verificar su visibilidad */
 let aboutSection = document.getElementById('about') // Obtengo la seccion con el id resume
@@ -57,7 +59,9 @@ let aboutSection = document.getElementById('about') // Obtengo la seccion con el
 observadorAbout.observe(aboutSection) 
 
 const gallery = document.getElementById('gallery') //Obtengo el elemento con id "gallery"
+gallery.classList.add("fade")
 const informationAbout = document.querySelector('.information-about') //Obtengo el elemento con la clase "information-about"
+informationAbout.classList.add("fade")
 
 /* defino la funcion que recibira IntersectionObserver*/
 function comprobarVisibilidadAbout(entries) {
@@ -67,13 +71,13 @@ function comprobarVisibilidadAbout(entries) {
 
    /* Cada objeto de "entries" tiene un funcion llamada "isIntersecting" la cual indica si esta visible en la pantalla*/
    if (entrada.isIntersecting){
-        gallery.classList.add("fade-in-left")
-        informationAbout.classList.add("fade-in-right")
+        gallery.classList.add("fade-in")
+        informationAbout.classList.add("fade-in")
    }
 }
 
 //*Observador para section portfolio*//
-const observadorPortfolio = new IntersectionObserver(comprobarVisibilidadPortfolio,{ threshold: 0.1 })
+const observadorPortfolio = new IntersectionObserver(comprobarVisibilidadPortfolio,{ threshold: 0.1 }) //Con threshold defino que la funcion se llame cuando el 10% del section este visible
 
 /* Obtengo el elemento que quiero verificar su visibilidad */
 let portfolioSection = document.getElementById('portfolio') // Obtengo la seccion con el id portfolio
@@ -82,6 +86,7 @@ let portfolioSection = document.getElementById('portfolio') // Obtengo la seccio
 observadorPortfolio.observe(portfolioSection) 
 
 const listProject = document.getElementById('list-project') //Obtengo el elemento con id "list-project"
+listProject.classList.add("fade")
 
 /* defino la funcion que recibira IntersectionObserver*/
 function comprobarVisibilidadPortfolio(entries) {
@@ -96,7 +101,7 @@ function comprobarVisibilidadPortfolio(entries) {
 }
 
 //*Observador para section contact*//
-const observadorContact = new IntersectionObserver(comprobarVisibilidadContact,{ threshold: 0.1 })
+const observadorContact = new IntersectionObserver(comprobarVisibilidadContact,{ threshold: 0.1 }) //Con threshold defino que la funcion se llame cuando el 10% del section este visible
 
 /* Obtengo el elemento que quiero verificar su visibilidad */
 let contactSection = document.getElementById('contact') // Obtengo la seccion con el id contact
@@ -105,7 +110,9 @@ let contactSection = document.getElementById('contact') // Obtengo la seccion co
 observadorContact.observe(contactSection) 
 
 const contactForm = document.getElementById('contact-form') //Obtengo el elemento con id "contact-form"
+contactForm.classList.add("fade")
 const contactExtra = document.querySelector('.contact-extra') //Obtengo el elemento con la clase "contact-extra"
+contactExtra.classList.add("fade")
 
 /* defino la funcion que recibira IntersectionObserver*/
 function comprobarVisibilidadContact(entries) {
@@ -115,7 +122,7 @@ function comprobarVisibilidadContact(entries) {
 
    /* Cada objeto de "entries" tiene un funcion llamada "isIntersecting" la cual indica si esta visible en la pantalla*/
    if (entrada.isIntersecting){
-        contactForm.classList.add("fade-in-left")
-        contactExtra.classList.add("fade-in-right")
+        contactForm.classList.add("fade-in")
+        contactExtra.classList.add("fade-in")
    }
 }

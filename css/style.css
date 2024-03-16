@@ -1185,50 +1185,18 @@ clase dropdown_arrow se le agregar un transform para rotar la flecha 180°*/
 /* #endregion*/
 
 /*** ANIMACIONES PARA APARICION***/
-
-@keyframes fade-in-right {
-    0% {
-      -webkit-transform: translateX(50px);
-              transform: translateX(50px);
-      opacity: 0;
-    }
-    100% {
-      -webkit-transform: translateX(0);
-              transform: translateX(0);
-      opacity: 1;
-    }
-} 
-.fade-in-right {
-	-webkit-animation: fade-in-right 1s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
-	    animation: fade-in-right 1s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
-}
-
-@keyframes fade-in-left {
-    0% {
-      -webkit-transform: translateX(-50px);
-              transform: translateX(-50px);
-      opacity: 0;
-    }
-    100% {
-      -webkit-transform: translateX(0);
-              transform: translateX(0);
-      opacity: 1;
-    }
-  }
-.fade-in-left {
-	-webkit-animation: fade-in-left 1s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
-	    animation: fade-in-left 1s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
-}
-
+/*Estilo para hacer aparecer el elemento*/
 @keyframes fade-in{
-    0% {
-      opacity: 0;
-    }
-    100% {
+    to {
       opacity: 1;
     }
 }
+/*Clase que tendran los elementos con la animacion fade-in para que comiencen con su opacidad en 0 al cargar el script intersectionObserver*/
+.fade{
+    opacity: 0;
+}
+/*Clase que tendran los elementos una vez que aparezcan en la pantalla*/
 .fade-in {
-	-webkit-animation: fade-in 1s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
-	    animation: fade-in 1s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+	-webkit-animation: fade-in 1s ease-in-out both;
+	animation: fade-in 1s ease-in-out both;
 }
