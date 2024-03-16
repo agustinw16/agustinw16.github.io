@@ -89,7 +89,7 @@
                 <div class="section-div">
                     <div class="title-section-div"><h1>About</h1></div>
                     <div class="about-inner-div">
-                        <div class="gallery">
+                        <div class="gallery" id="gallery">
                             <div class="box one" style="--img:url(../assets/jav1.webp)"><img src="assets/jav1.webp" loading="lazy"></div>
                             <div class="box two" style="--img:url(../assets/jav2.webp)"><img src="assets/jav2.webp" loading="lazy"></div>
                             <div class="box three" style="--img:url(../assets/jav3.webp)"><img src="assets/jav3.webp" loading="lazy"></div>
@@ -300,22 +300,22 @@
             </section>
         </div>
 
-        <!--VENTANA MODAL PARA GALAERIA -->
-        <section id="modalGalery" class="modal ">
-            <div class="modalContenidoGalery">
+        <!--VENTANA MODAL PARA GALERIA -->
+        <section id="modalGallery" class="modal ">
+            <div class="modal-content-gallery">
                 <!--Le agrego un id para distinguir el swiper-pagination de otra instancia -->
-                <div id="swiper-galery" class="slide-container swiper">
+                <div id="swiper-gallery" class="slide-container swiper">
                     <!--Coloco slide-galery para separar mejor swiper-pagination-->
-                    <div class="slide-galery">
+                    <div class="slide-gallery">
                         <!--Le agrego un id para enviar a este div las imagenes de la galeria -->
-                        <div id="galery-postbox" class="card-wrapper swiper-wrapper">
+                        <div id="gallery-postbox" class="card-wrapper swiper-wrapper">
                             <!--El contenido se rellena ataves del JavaScript "projectManager" -->
                         </div>
                     </div>
                     <div class="swiper-pagination"></div>
                 </div>
                 <div>
-                    <button id="botonCloseGalery" class="modalBtnClose">Close</button>
+                    <button id="botonCloseGallery" class="modalBtnClose">Close</button>
                 </div>
             </div>
         </section>

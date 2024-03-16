@@ -30,7 +30,7 @@ let projects = [
         'type': 1,
         'description': ` `,
         'tech': ['java-icon'],
-        'galery': ['1'],
+        'gallery': ['1'],
         'github': ''
     }
     */
@@ -87,8 +87,8 @@ const createButtonByType = (project) =>{  // Recibo un objeto del tipo 'project'
             buttonsHTML= 
             `
             <div class="card-buttons">
-                <div onclick="showGalery('${project.name}')" class="button">
-                        <img src="assets/galery-icon.svg" class="button-img">Galery
+                <div onclick="showGallery('${project.name}')" class="button">
+                        <img src="assets/gallery-icon.svg" class="button-img">Gallery
                     </div>
                 <a href="${project.github}" target="_blank" class="button">
                     <img src="assets/github-icon.svg" class="button-img">Github
@@ -153,31 +153,31 @@ const createProjecstHeader = (project) =>{  // Recibo un objeto del tipo 'projec
 chargeProjects();
 
 //*Funcion para generar el contenido de la galeria de cada proyecto (No necesita ser llamada desde el js, lo hace con onclick desde el html)
-const showGalery = (name)=>{ //Recibo el nombre del proyecto, ya que en el html al crear el boton galery le paso el nombre de cada proyecto
-    const modalGalery = document.getElementById('modalGalery'); //Obtengo la ventana modal para mostrar la galeria
+const showGallery = (name)=>{ //Recibo el nombre del proyecto, ya que en el html al crear el boton galery le paso el nombre de cada proyecto
+    const modalGallery = document.getElementById('modalGallery'); //Obtengo la ventana modal para mostrar la galeria
 
-    let projectGalery = projects.find(object => object.name === name) //De mi array de proyectos definido al inicio del js, busco el que coincida con el name recibido
+    let projectGallery = projects.find(object => object.name === name) //De mi array de proyectos definido al inicio del js, busco el que coincida con el name recibido
 
-    let galeryHTML = ''; //Genero una cadena vacia
-    for(let image of projectGalery.galery){ //Saco un elemento del array "galery" del proyecto
-        galeryHTML +=  //Relleno la cadena con el codigo que ira dentro del carrucel de imagenes en la ventana modal
+    let galleryHTML = ''; //Genero una cadena vacia
+    for(let image of projectGallery.gallery){ //Saco un elemento del array "galery" del proyecto
+        galleryHTML +=  //Relleno la cadena con el codigo que ira dentro del carrucel de imagenes en la ventana modal
         `
-        <div class="galery-content swiper-slide">
-            <img src="assets/projects/${projectGalery.name}/${image}.jpg" alt="" class="galery-img">
+        <div class="gallery-project swiper-slide">
+            <img src="assets/projects/${projectGallery.name}/${image}.jpg" alt="" class="gallery-img">
         </div>
         `
     }
-    document.getElementById('galery-postbox').innerHTML = galeryHTML; //Inserto en el div con id galery-postbox la cadena con el codigo html
-    modalGalery.classList.add('modal--show'); //A la ventana modal que obtuve al inicio le agrego la clase css modal--show para mostrar la ventana
+    document.getElementById('gallery-postbox').innerHTML = galleryHTML; //Inserto en el div con id gallery-postbox la cadena con el codigo html
+    modalGallery.classList.add('modal--show'); //A la ventana modal que obtuve al inicio le agrego la clase css modal--show para mostrar la ventana
     
-    const botonClose = document.getElementById('botonCloseGalery'); //Obtengo el boton close de la galeria
+    const botonClose = document.getElementById('botonCloseGallery'); //Obtengo el boton close de la galeria
 
     // Verificar si ya se agregó el evento 'click' al botón
     if (!botonClose.dataset.eventListenerAdded){     
         //Al boton close le añado el evento click, para que al presionarlo remueva la clase 'modal--show'
         botonClose.addEventListener('click', (event)=>{
             event.preventDefault();
-            modalGalery.classList.remove('modal--show');
+            modalGallery.classList.remove('modal--show');
         });
 
         // Marcar que ya se agregó el evento al botón

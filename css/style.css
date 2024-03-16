@@ -151,17 +151,18 @@ body{
     /*max-height: 100%; /* Establece un alto máximo para permitir el scroll */
     /*overflow-y: auto; /* Habilita el scroll cuando sea necesario */
 }
-/*Estilo para evitar que el contenido no sea interactuable*/
+/*Estilo para evitar que el contenido sea interactuable*/
 .no-interactive{
     pointer-events: none;
 }
+/*
 .article-section{
     background: #f1f7fe;
-    /*min-height: 100%; /*De este modo cada section siempre ocupera el 100% de la pantalla del article-container*/
-    /*height: 100%; /* Combinado con la propiedad min-heigh cada section ira creciendo conforme al contenido */
-    /*margin-bottom: 1px; /* Espacio entre secciones */
-    /*padding: 10px; /*Espacio entre la section y el article-container*/
+    margin-bottom: 1px; /* Espacio entre secciones 
+    padding: 10px; /*Espacio entre la section y el article-container
 }
+*/
+
 /*------------------------------------------------------------------*/
 /*                          BOTON DE MENU                           */
 /*------------------------------------------------------------------*/
@@ -988,7 +989,6 @@ clase dropdown_arrow se le agregar un transform para rotar la flecha 180°*/
     }
 }
 /* #endregion*/
-
 /*------------------------------------------------------------------*/
 /*                         SECCION PORTFOLIO                        */
 /*------------------------------------------------------------------*/
@@ -1138,7 +1138,7 @@ clase dropdown_arrow se le agregar un transform para rotar la flecha 180°*/
 
 /**VENTANA MODAL DE GALERIA**/
 /*Estilo para la ventana modal de la galeria*/
-.modalContenidoGalery{
+.modal-content-gallery{
     /*Valores para el tamaño y posicion de la ventana modal*/
     margin: auto;
     width: 90%;
@@ -1154,23 +1154,24 @@ clase dropdown_arrow se le agregar un transform para rotar la flecha 180°*/
     grid-template-rows: repeat(2,auto);
 }
 /*Estilo para el contenedor del contenedor de las imagenes de la galeria en la ventana modal*/
-.slide-galery{
+.slide-gallery{
     overflow: hidden; /*El contenido que sobresalga del slide se ocultara*/
 }
 /*Estilo para el contenedor que tiene las imagenes de la galeria*/
-.galery-content{
+.gallery-project{
     overflow: hidden;
     position: relative;
-    height: 100%;
+    height: 620px;/*Las imagenes tedran por defecto este alto*/
+    max-height: 620px;/*Las imagenes no podran superar el alto de este contenedor*/
     width: 100%;
     border-radius: 25px;
 }
 /*Estilo para las imagenes de la galeria*/
-.galery-img{
+.gallery-img{
     /*Al indicarle a la imagen un height y width 100% las imagenes ocuparan el 100% del contenedor osea 150px*/
     height: 100%;
     width: 100%;
-    object-fit: contain; /*Con contain le indico a la imagen que se adapte al contenedor para mostarse completa*/
+    object-fit: cover; /*Con contain le indico a la imagen que se adapte al contenedor para mostarse completa*/
     border-radius: 25px;
 }
 
@@ -1182,3 +1183,52 @@ clase dropdown_arrow se le agregar un transform para rotar la flecha 180°*/
 }
 
 /* #endregion*/
+
+/*** ANIMACIONES PARA APARICION***/
+
+@keyframes fade-in-right {
+    0% {
+      -webkit-transform: translateX(50px);
+              transform: translateX(50px);
+      opacity: 0;
+    }
+    100% {
+      -webkit-transform: translateX(0);
+              transform: translateX(0);
+      opacity: 1;
+    }
+} 
+.fade-in-right {
+	-webkit-animation: fade-in-right 1s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+	    animation: fade-in-right 1s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+}
+
+@keyframes fade-in-left {
+    0% {
+      -webkit-transform: translateX(-50px);
+              transform: translateX(-50px);
+      opacity: 0;
+    }
+    100% {
+      -webkit-transform: translateX(0);
+              transform: translateX(0);
+      opacity: 1;
+    }
+  }
+.fade-in-left {
+	-webkit-animation: fade-in-left 1s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+	    animation: fade-in-left 1s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+}
+
+@keyframes fade-in{
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+}
+.fade-in {
+	-webkit-animation: fade-in 1s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+	    animation: fade-in 1s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+}

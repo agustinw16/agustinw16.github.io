@@ -14,11 +14,11 @@ var swiper = new Swiper(".slide-content", { //Coloco la clase que es la contened
     },
   });
 
-var swiperGalery = new Swiper(".slide-galery", { //Coloco la clase que es la contenedora de la galeria
+var swiperGallery = new Swiper(".slide-gallery", { //Coloco la clase que es la contenedora de la galeria
     slidesPerView: 1, //Cantidad de imagenes que se mostraran
     spaceBetween: 5, //Espaciado entre las imagenes
     pagination: {
-      el: "#swiper-galery .swiper-pagination", //Utilizo un id en cada contenedor del slide porque swiper solo admite un swiper-pagination por instancia
+      el: "#swiper-gallery .swiper-pagination", //Utilizo un id en cada contenedor del slide porque swiper solo admite un swiper-pagination por instancia
       clickable: true,
     },
   });
