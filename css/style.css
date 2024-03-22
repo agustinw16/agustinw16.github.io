@@ -313,13 +313,7 @@ body{
     /*left: 0; /*Vuelve a poner la posicion left del menu a su valor original para que se muestre*/
     /*transition: left 1s; /*Transicion que tendra la aparacion del menu*/
 }
-/*
-@media screen and (max-width: 360px){
-    .article-container{
-        flex-wrap: wrap; /*Se aplicara un wrap despues de bajar de 480px asi toda la pantalla se encoja
-    }
-}
-*/
+
 /*||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||*/
 /*               FIN DISEÑO RESPONSIVE-MENU NAVEGABLE               */
 /*||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||*/
